@@ -15,7 +15,8 @@ import com.facebook.react.uimanager.ThemedReactContext;
 public class ButtonManager extends SimpleViewManager<ButtonComponent> {
     private final static String REACT_CLASS = "ButtonAndroid";
 
-    private static class ReactSwitchShadowNode extends LayoutShadowNode implements
+    //Classe permettant d'intégrer le noeud représentant notre composant dans la vue qui le contiendra.
+    private class ReactSwitchShadowNode extends LayoutShadowNode implements
             CSSNode.MeasureFunction {
 
         private int mWidth;
@@ -29,16 +30,13 @@ public class ButtonManager extends SimpleViewManager<ButtonComponent> {
         @Override
         public void measure(CSSNode node, float width, MeasureOutput measureOutput) {
             if(!mMeasured) {
-                // Create a switch with the default config and measure it; since we don't (currently)
-                // support setting custom switch text, this is fine, as all switches will measure the same
-                // on a specific device/theme/locale combination.
-                ButtonComponent reactSwitch = new ButtonComponent(getThemedContext());
+                ButtonComponent buttonComponent = new ButtonComponent(getThemedContext());
                 final int spec = View.MeasureSpec.makeMeasureSpec(
                         ViewGroup.LayoutParams.WRAP_CONTENT,
                         View.MeasureSpec.UNSPECIFIED);
-                reactSwitch.measure(spec, spec);
-                mWidth = reactSwitch.getMeasuredWidth();
-                mHeight = reactSwitch.getMeasuredHeight();
+                buttonComponent.measure(spec, spec);
+                mWidth = buttonComponent.getMeasuredWidth();
+                mHeight = buttonComponent.getMeasuredHeight();
                 mMeasured = true;
             }
             measureOutput.width = mWidth;

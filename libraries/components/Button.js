@@ -40,6 +40,7 @@ class Button extends React.Component {
 	//Si utilisation de React.createClass, on peut les définir en utilisant 
 	//getDefaultProps: function():
 	static defaultProps = {
+		//style: {width:200,height:50},
 		textSize: 15,
 		textColor: 'black',
 	};
