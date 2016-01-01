@@ -7,7 +7,6 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
 import fr.ayoubdev.rnak.components.button.ButtonManager;
 import fr.ayoubdev.rnak.components.switchtest.SwitchManager;
-import fr.ayoubdev.rnak.components.tab.TabManager;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -31,8 +30,7 @@ public class RNAKPackage implements ReactPackage {
     public List<ViewManager> createViewManagers(ReactApplicationContext reactApplicationContext) {
         return Arrays.<ViewManager>asList(
                 new SwitchManager(),
-                new ButtonManager(),
-                new TabManager()
+                new ButtonManager()
         );
     }
 }

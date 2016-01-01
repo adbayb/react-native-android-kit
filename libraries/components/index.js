@@ -10,10 +10,8 @@ const {
 if(Platform.OS === 'android') {
 	exports.Button = require('./Button');
 	exports.Switch = require('./SwitchTest');
-	exports.Tab = require('./Tab');
 }
 else {
 	exports.Button = require('./UnAvailableView');
 	exports.Switch = require('./UnAvailableView');
-	exports.Tab = require('./UnAvailableView');
 }

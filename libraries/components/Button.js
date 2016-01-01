@@ -43,6 +43,9 @@ class Button extends React.Component {
 		textSize: 15,
 		textColor: 'black',
 	};
+	//Les propriétés de largeur, hauteur... des composants natifs react (View...) sont exprimées 
+	//en DIP et non en pixel. Le code Java fb se charge ensuite de traduire les valeurs dip en pixel
+	//=> cf. PixelUtil.toPixelFromDIP fonction dans LayoutShadowNode.java
 	
 	//Constructeur: on passe les propriétés spécifiés lors de 
 	//l'utilisation de notre composant <ButtonAndroid> à notre objet correspondant:
