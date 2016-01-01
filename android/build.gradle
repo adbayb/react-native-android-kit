@@ -1,0 +1,27 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.5.+'
+    }
+}
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 'android-23'
+    buildToolsVersion '23.0.2'
+
+    defaultConfig {
+        minSdkVersion 16
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    provided 'com.facebook.react:react-native:0.17.+'
+    compile 'com.android.support:appcompat-v7:+'
+}

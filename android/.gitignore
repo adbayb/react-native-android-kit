@@ -1,0 +1,8 @@
+#Gradle Resources:
+build
+.gradle
+local.properties
+
+#Intellij Idea Resources:
+*.iml
+.idea
