@@ -1,12 +1,15 @@
 {
-  "name": "react-native-android-kit",
-  "version": "0.0.1",
-  "description": "Android Native Kit for React-Native",
-  "main": "libraries/main.js",
-  "author": "Ayoub ADIB <ayoub.adib.dev@gmail.com>",
-  "peerDependencies": {
-    "react-native": ">=0.17.0 <1.0.0"
-  },
-  "devDependencies": {
-  }
+	"name": "react-native-android-kit",
+	"version": "0.0.1",
+	"description": "Android Native Kit for React-Native",
+	"main": "libraries/main.js",
+	"author": "Ayoub ADIB <ayoub.adib.dev@gmail.com>",
+	"licence": "GPL-2.0",
+	"peerDependencies": {
+		"react-native": ">=0.17.0 <1"
+	},
+	"devDependencies": {
+		"babel-eslint": ">=4.1.6",
+		"eslint-plugin-react": ">=3.13.1"
+	}
 }
