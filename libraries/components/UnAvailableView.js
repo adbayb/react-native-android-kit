@@ -1,20 +1,20 @@
-/**
- * Common implementation for a simple stubbed view. Simply applies the view's styles to the inner
- * View component and renders its children.
- *
- * @providesModule UnAvailableView
- */
-'use strict';
-
-const React = require('react-native');
-const {
+import React from 'react-native';
+import {
 	Component,
 	View,
 	StyleSheet,
 	Text
-} = React;
+} from 'react-native';
 
-class UnAvailableView extends React.Component {
+const styles = StyleSheet.create({
+	unavailableview: {
+		borderWidth: 5,
+		borderColor: 'red',
+		alignSelf: 'flex-start',
+	}
+});
+
+export default class UnAvailableView extends Component {
 	render() {
 		return (
 			<View style={[styles.unavailableview, this.props.style]}>
@@ -25,13 +25,3 @@ class UnAvailableView extends React.Component {
 		);
 	}
 }
-
-const styles = StyleSheet.create({
-	unavailableview: {
-		borderWidth: 5,
-		borderColor: 'red',
-		alignSelf: 'flex-start',
-	}
-});
-
-module.exports = UnAvailableView;

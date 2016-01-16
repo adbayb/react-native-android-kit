@@ -1,36 +1,38 @@
-'use strict';
+import React, {
+	PropTypes,
+	View,
+	NativeMethodsMixin,
+	requireNativeComponent,
+	Switch
+} from 'react-native';
 
-const React = require('react-native');
-const {
-  Component,
-  TouchableWithoutFeedback,
-  PropTypes,
-  View,
-  NativeMethodsMixin,
-  requireNativeComponent,
-  Switch
-} = React;
+var RKSwitch = requireNativeComponent('SwitchAndroidTest', SwitchTest, {
+	nativeOnly: {
+		on: true,
+		enabled: true,
+	}
+});
 
 //Exemple d'héritage d'un composant de base React-Native (ici Switch). 
 //Seul la fonction render() est overridée:
-class SwitchTest extends React.Switch {
-  _onChange(event) {
-    super._onChange(event);
-  }
-  
-  render() {
-    return (
-      <RKSwitch
-        style={this.props.style}
-        enabled={!this.props.disabled}
-        on={this.props.value}
-        onChange={this._onChange}
-        testID={this.props.testID}
-        onStartShouldSetResponder={() => true}
-        onResponderTerminationRequest={() => false}
-      />
-    );
-  }	
+export default class SwitchTest extends Switch {
+	_onChange(event) {
+		super._onChange(event);
+	}
+
+	render() {
+		return (
+			<RKSwitch
+				style={this.props.style}
+				enabled={!this.props.disabled}
+				on={this.props.value}
+				onChange={this._onChange}
+				testID={this.props.testID}
+				onStartShouldSetResponder={() => true}
+				onResponderTerminationRequest={() => false}
+			/>
+		);
+	}
 }
 
 SwitchTest.mixins = [NativeMethodsMixin];
@@ -57,12 +59,3 @@ SwitchTest.defaultProps = {
 	value: false,
 	disabled: false,
 };
-
-var RKSwitch = requireNativeComponent('SwitchAndroidTest', SwitchTest, {
-  nativeOnly: {
-    on: true,
-    enabled: true,
-  }
-});
-
-module.exports = SwitchTest;

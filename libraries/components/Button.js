@@ -1,19 +1,25 @@
-'use strict';
-
-const React = require('react-native');
-const {
+import React from 'react-native';
+import {
 	Component,
 	PropTypes,
 	View,
 	TouchableWithoutFeedback,
 	NativeMethodsMixin,
 	requireNativeComponent
-} = React;
+} from 'react-native';
+
+//requireNativeComponent permet de faire l'interface entre le code javascript et le code java natif.
+//Le première paramètre prend le nom de la vue définie dans notre SimpleViewManager du composant implémenté en java
+//Le deuxième paramètre correspond à l'objet javascript définissant notre composant react-native en js.
+//Un troisième paramètre optionnel permet de spécifier les propriétés accessibles (via un objet littéral contenant nativeOnly:...)
+//seulement via le code java et non via l'api javascript exposé au futur utilisateur dev du composant js.
+//cf. https://facebook.github.io/react-native/docs/native-components-android.html#5-implement-the-javascript-module
+const RNAKButton = requireNativeComponent('ButtonAndroid', Button, {});
 
 /**
  * Standard Android two-state toggle component
  */
-class Button extends React.Component {
+export default class Button extends Component {
 	//propTypes permet de définir les contraintes liées aux types des propriétés de notre componsant.
 	//propTypes permet une validation par le framework React-Native des propriétés (de leur typage).
 	//cf. https://facebook.github.io/react/docs/reusable-components.html
@@ -34,7 +40,7 @@ class Button extends React.Component {
 		text: PropTypes.string,
 		textSize: PropTypes.number,
 	};
-	
+
 	//Définition des valeurs par défault des propriétés.
 	//Doit être en static dans le cas où Button est une classe (ES6).
 	//Si utilisation de React.createClass, on peut les définir en utilisant 
@@ -47,7 +53,7 @@ class Button extends React.Component {
 	//Les propriétés de largeur, hauteur... des composants natifs react (View...) sont exprimées 
 	//en DIP et non en pixel. Le code Java fb se charge ensuite de traduire les valeurs dip en pixel
 	//=> cf. PixelUtil.toPixelFromDIP fonction dans LayoutShadowNode.java
-	
+
 	//Constructeur: on passe les propriétés spécifiés lors de 
 	//l'utilisation de notre composant <ButtonAndroid> à notre objet correspondant:
 	constructor(props) {
@@ -56,11 +62,11 @@ class Button extends React.Component {
 
 	render() {
 		//console.log(this.props);//Debug: sous chrome F12 (onglet console)
-		
+
 		//On affecte les propriétés modifiables via notre composant. 
 		//Lors de la réutilisation de notre composant ButtonAndroid, 
 		//les propriétés telles que style, color (...) pourront donc être customisées:
-		
+
 		//Le transfert de l'ensemble des propriétés saisies dans la balise <ButtonAndroid> 
 		//vers un sous-composant le constituant (TouchableWithoutFeedback ou RNAKButton ici) se fait via l'opérateur 
 		//{...blabla} donc ici via {...this.props}.
@@ -71,7 +77,7 @@ class Button extends React.Component {
 		//<TouchableWithoutFeedback style={styles.button} text='Button' onPress={() => var toto="Callback"}/>
 		//mais il ne prendra en compte que les attributs le caractérisant, ici onPress 
 		//(cf. https://facebook.github.io/react-native/docs/touchablewithoutfeedback.html#content)
-		
+
 		//Pour le sous-composant de gestion des clicks et évènements TouchableWithoutFeedback: nous allons transférer 
 		//l'ensemble des propriété pour autoriser potentiellement notre dev à utiliser l'ensemble des propriétés valides de TouchableWithoutFeedback
 		//Pour notre bouton natif (RNAKButton), nous n'allons pas transférer l'ensembles des propriétés spécifiés lors de la déclaration <ButtonAndroid> 
@@ -93,14 +99,4 @@ class Button extends React.Component {
 			</TouchableWithoutFeedback>
 		);
 	}
-} 
-
-//requireNativeComponent permet de faire l'interface entre le code javascript et le code java natif.
-//Le première paramètre prend le nom de la vue définie dans notre SimpleViewManager du composant implémenté en java
-//Le deuxième paramètre correspond à l'objet javascript définissant notre composant react-native en js.
-//Un troisième paramètre optionnel permet de spécifier les propriétés accessibles (via un objet littéral contenant nativeOnly:...) 
-//seulement via le code java et non via l'api javascript exposé au futur utilisateur dev du composant js.
-//cf. https://facebook.github.io/react-native/docs/native-components-android.html#5-implement-the-javascript-module
-const RNAKButton = requireNativeComponent('ButtonAndroid', Button, {});
-
-module.exports = Button;
+}
