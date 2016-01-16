@@ -5,6 +5,7 @@ import React, {
 	Platform
 }  from 'react-native';
 import Button from './Button';
+import FloatingButton from './FloatingButton';
 import SwitchTest from './SwitchTest';
 import UnAvailableView from './UnAvailableView';
 
@@ -16,9 +17,11 @@ if (Platform.OS === 'android') {
 	exports.ButtonComponent = Button;
 	//exports.Switch = require('./SwitchTest');
 	exports.SwitchComponent = SwitchTest;
+	exports.FloatingButtonComponent = FloatingButton;
 }
 else {
 	exports.ButtonComponent = UnAvailableView;
 	exports.SwitchComponent = UnAvailableView;
+	exports.FloatingButtonComponent = UnAvailableView;
 	//exports.Switch = require('./UnAvailableView');
 }

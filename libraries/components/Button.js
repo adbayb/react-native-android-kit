@@ -16,9 +16,6 @@ import {
 //cf. https://facebook.github.io/react-native/docs/native-components-android.html#5-implement-the-javascript-module
 const RNAKButton = requireNativeComponent('ButtonAndroid', Button, {});
 
-/**
- * Standard Android two-state toggle component
- */
 export default class Button extends Component {
 	//propTypes permet de définir les contraintes liées aux types des propriétés de notre componsant.
 	//propTypes permet une validation par le framework React-Native des propriétés (de leur typage).

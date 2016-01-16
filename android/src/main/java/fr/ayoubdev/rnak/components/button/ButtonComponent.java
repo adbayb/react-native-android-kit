@@ -5,11 +5,12 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.util.TypedValue;
 import android.widget.Button;
+import fr.ayoubdev.rnak.utils.api.Node;
 
 /**
  * Created by Adib on 27/12/2015.
  */
-public class ButtonComponent extends Button {
+public class ButtonComponent extends Button implements Node {
     public ButtonComponent(Context context) {
         super(context);
 
@@ -34,16 +35,21 @@ public class ButtonComponent extends Button {
         return;
     }
 
-    public void _setText(String text) {
+    /*public void _setText(String text) {
         this.setText(text);
 
         return;
-    }
+    }*/
 
     public void _setTextSize(int size) {
         //graduation sp au lieu de dip pour les fonts:
         this.setTextSize(TypedValue.COMPLEX_UNIT_SP, size);
 
         return;
+    }
+
+    @Override
+    public ButtonComponent create(Context context) {
+        return new ButtonComponent(context);
     }
 }
