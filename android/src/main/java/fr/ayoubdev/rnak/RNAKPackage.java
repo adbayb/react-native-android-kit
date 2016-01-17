@@ -8,6 +8,7 @@ import com.facebook.react.uimanager.ViewManager;
 import fr.ayoubdev.rnak.components.button.ButtonManager;
 import fr.ayoubdev.rnak.components.floatingbutton.FabManager;
 import fr.ayoubdev.rnak.components.switchtest.SwitchManager;
+import fr.ayoubdev.rnak.components.tab.TabLayoutManager;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -32,7 +33,8 @@ public class RNAKPackage implements ReactPackage {
 		return Arrays.<ViewManager>asList(
 				new SwitchManager(),
 				new ButtonManager(),
-				new FabManager()
+				new FabManager(),
+				new TabLayoutManager()
 		);
 	}
 }

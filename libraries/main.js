@@ -4,8 +4,9 @@
 //exports.ButtonAndroid = exports.Components.Button;
 
 //Avec ES6:
-import {ButtonComponent, FloatingButtonComponent, SwitchComponent} from './components';
+import {ButtonComponent, FloatingButtonComponent, TabLayoutComponent, SwitchComponent} from './components';
 
 export class ButtonAndroid extends ButtonComponent {}
 export class FloatingButtonAndroid extends FloatingButtonComponent {}
+export class TabLayoutAndroid extends TabLayoutComponent {}
 export class SwitchAndroidTest extends SwitchComponent {}

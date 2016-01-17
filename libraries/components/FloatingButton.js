@@ -4,7 +4,6 @@ import {
 	PropTypes,
 	View,
 	TouchableWithoutFeedback,
-	NativeMethodsMixin,
 	requireNativeComponent
 } from 'react-native';
 

@@ -4,9 +4,10 @@
 import React, {
 	Platform
 }  from 'react-native';
+import SwitchTest from './SwitchTest';
 import Button from './Button';
 import FloatingButton from './FloatingButton';
-import SwitchTest from './SwitchTest';
+import TabLayout from './TabLayout';
 import UnAvailableView from './UnAvailableView';
 
 //Nos composants sont valables que sur la plateforme Android ;)
@@ -14,14 +15,15 @@ if (Platform.OS === 'android') {
 	//sous ES6 les imports et exports conditionnel ne sont pas acceptés (seulement en statique)
 	//Pour contrepasser cette restriction, on utilise exports d'ES5:
 	//export class ButtonComponent extends Button {}
-	exports.ButtonComponent = Button;
 	//exports.Switch = require('./SwitchTest');
 	exports.SwitchComponent = SwitchTest;
+	exports.ButtonComponent = Button;
 	exports.FloatingButtonComponent = FloatingButton;
+	exports.TabLayoutComponent = TabLayout;
 }
 else {
-	exports.ButtonComponent = UnAvailableView;
 	exports.SwitchComponent = UnAvailableView;
+	exports.ButtonComponent = UnAvailableView;
 	exports.FloatingButtonComponent = UnAvailableView;
-	//exports.Switch = require('./UnAvailableView');
+	exports.TabLayoutComponent = UnAvailableView;
 }
