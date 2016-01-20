@@ -17,7 +17,11 @@ public class ButtonComponent extends Button implements Node {
         this.setAllCaps(false);
     }
 
-    public void _setBackgroundColor(String color) {
+    public void setTextColor(String color) {
+        super.setTextColor(Color.parseColor(color));
+    }
+
+    public void setBackgroundColor(String color) {
         //setBackgroundColor ne conserve pas le comportement "shaded" du bouton,
         //on doit utiliser un filtre de couleur pour conserver les effets:
         //this.setBackgroundColor(Color.argb(255,255,0,0));
@@ -29,21 +33,15 @@ public class ButtonComponent extends Button implements Node {
         return;
     }
 
-    public void _setTextColor(String color) {
-        this.setTextColor(Color.parseColor(color));
-
-        return;
-    }
-
-    /*public void _setText(String text) {
+    /*public void setText(String text) {
         this.setText(text);
 
         return;
     }*/
 
-    public void _setTextSize(int size) {
+    public void setTextSize(int size) {
         //graduation sp au lieu de dip pour les fonts:
-        this.setTextSize(TypedValue.COMPLEX_UNIT_SP, size);
+        super.setTextSize(TypedValue.COMPLEX_UNIT_SP, size);
 
         return;
     }

@@ -36,22 +36,22 @@ public class FabManager extends SimpleViewManager<FabComponent> {
 
 	@ReactProp(name = "icon")
 	public void setIcon(FabComponent view, String iconName) {
-		view._setImageDrawable(iconName);
+		view.setImageDrawable(iconName);
 	}
 
 	@ReactProp(name = "color")
 	public void setColor(FabComponent view, String color) {
-		view._setColor(color);
+		view.setColor(color);
 	}
 
 	@ReactProp(name = "rippleColor")
 	public void setRippleColor(FabComponent view, String color) {
-		view._setRippleColor(color);
+		view.setRippleColor(color);
 	}
 
 	@ReactProp(name = "hidden", defaultBoolean = false)
 	public void setDisplay(FabComponent view, boolean isHidden) {
-		view._hide(isHidden);
+		view.hide(isHidden);
 	}
 
 	@ReactProp(name = "rippleEffect", defaultBoolean = true)

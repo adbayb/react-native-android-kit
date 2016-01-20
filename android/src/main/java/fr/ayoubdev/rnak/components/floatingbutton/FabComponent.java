@@ -17,7 +17,7 @@ public class FabComponent extends FloatingActionButton implements Node {
 		//this.setClickable(true);
 	}
 
-	public void _setColor(String color) {
+	public void setColor(String color) {
 		//setBackgroundColor n'est pas implémentée ("Setting a custom background is not supported.")
 		//on utilise à la place la fonction héritée de ImageView setBackgroundTintList()
 		//(cf. https://android.googlesource.com/platform/frameworks/support/+/master/design/src/android/support/design/widget/FloatingActionButton.java):
@@ -27,13 +27,13 @@ public class FabComponent extends FloatingActionButton implements Node {
 		return;
 	}
 
-	public void _setRippleColor(String color) {
-		this.setRippleColor(Color.parseColor(color));
+	public void setRippleColor(String color) {
+		super.setRippleColor(Color.parseColor(color));
 
 		return;
 	}
 
-	public void _setImageDrawable(String filename) {
+	public void setImageDrawable(String filename) {
 		String imageName = getFilenameWithoutExtension(filename);
 		//Android n'accepte pas les fichiers contenant des -:
 		imageName.replace('-', '_');
@@ -44,14 +44,14 @@ public class FabComponent extends FloatingActionButton implements Node {
 		//(cf. https://android.googlesource.com/platform/frameworks/support/+/master/design/src/android/support/design/widget/FloatingActionButton.java):
 		//view.setBackgroundDrawable(view.getResources().getDrawable(com.facebook.stetho.R.drawable.abc_btn_check_to_on_mtrl_015));
 		//view.setImageDrawable(view.getResources().getDrawable(com.facebook.stetho.R.drawable.abc_btn_check_to_on_mtrl_015));
-		this.setImageDrawable(this.getResources().getDrawable(id));
+		super.setImageDrawable(this.getResources().getDrawable(id));
 
 		return;
 	}
 
-	public void _hide(boolean isHidden) {
+	public void hide(boolean isHidden) {
 		if(isHidden)
-			this.hide();
+			super.hide();
 		else
 			this.show();
 

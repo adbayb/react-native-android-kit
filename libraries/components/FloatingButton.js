@@ -19,13 +19,13 @@ export default class FloatingButton extends Component {
 		hide: PropTypes.bool,
 		rippleEffect: PropTypes.bool
 	};
-	
+
 	static defaultProps = {
-		style: {width:50,height:50},
+		style: {width: 50, height: 50},
 		hide: false,
-		rippleEffect: true,
+		rippleEffect: true
 	};
-	
+
 	constructor(props) {
 		super(props);
 	}

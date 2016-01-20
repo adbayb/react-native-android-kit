@@ -36,17 +36,17 @@ public class ButtonManager extends SimpleViewManager<ButtonComponent> {
 
 	@ReactProp(name = "color")
 	public void setColor(ButtonComponent view, String color) {
-		view._setBackgroundColor(color);
+		view.setBackgroundColor(color);
 	}
 
 	@ReactProp(name = "textColor")
 	public void setTextColor(ButtonComponent view, String color) {
-		view._setTextColor(color);
+		view.setTextColor(color);
 	}
 
 	@ReactProp(name = "textSize")
 	public void setTextSize(ButtonComponent view, int size) {
-		view._setTextSize(size);
+		view.setTextSize(size);
 	}
 
 	@ReactProp(name = "text")
