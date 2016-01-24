@@ -12,6 +12,7 @@ export class TabLayout extends Component {
 	static REF_TABLAYOUT = 'refTabLayout';
 	static propTypes = {
 		...View.propTypes,
+		...ViewPagerAndroid.propTypes,
 		backgroundColor: React.PropTypes.string,
 		indicatorTabColor: React.PropTypes.string,
 		indicatorTabHeight: React.PropTypes.number,
@@ -111,7 +112,7 @@ export class TabLayout extends Component {
 				<RNAKTabLayout ref={TabLayout.REF_TABLAYOUT}
 					{...this.props}>
 				</RNAKTabLayout>
-				<ViewPagerAndroid ref={TabLayout.REF_VIEWPAGER} style={{flex:1}}>
+				<ViewPagerAndroid ref={TabLayout.REF_VIEWPAGER} style={{flex:1}} {...this.props}>
 					{this.manageChildren()}
 				</ViewPagerAndroid>
 			</View>
