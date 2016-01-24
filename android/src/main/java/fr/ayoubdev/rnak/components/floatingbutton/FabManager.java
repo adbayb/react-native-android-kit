@@ -35,27 +35,27 @@ public class FabManager extends SimpleViewManager<FabComponent> {
 	}
 
 	@ReactProp(name = "icon")
-	public void setIcon(FabComponent view, String iconName) {
+	public void propSetIcon(FabComponent view, String iconName) {
 		view.setImageDrawable(iconName);
 	}
 
 	@ReactProp(name = "color")
-	public void setColor(FabComponent view, String color) {
+	public void propSetColor(FabComponent view, String color) {
 		view.setColor(color);
 	}
 
 	@ReactProp(name = "rippleColor")
-	public void setRippleColor(FabComponent view, String color) {
+	public void propSetRippleColor(FabComponent view, String color) {
 		view.setRippleColor(color);
 	}
 
 	@ReactProp(name = "hidden", defaultBoolean = false)
-	public void setDisplay(FabComponent view, boolean isHidden) {
+	public void propSetVisibility(FabComponent view, boolean isHidden) {
 		view.hide(isHidden);
 	}
 
 	@ReactProp(name = "rippleEffect", defaultBoolean = true)
-	public void setRippleEffect(FabComponent view, boolean rippleEffect) {
+	public void propSetRippleEffect(FabComponent view, boolean rippleEffect) {
 		//si on ne rend pas notre FAB clickable, l'effet ripple ne sera pas appliqué:
 		view.setClickable(rippleEffect);
 	}

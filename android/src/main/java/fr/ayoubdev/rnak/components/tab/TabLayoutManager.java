@@ -1,11 +1,18 @@
 package fr.ayoubdev.rnak.components.tab;
 
+import android.graphics.Color;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import com.facebook.infer.annotation.Assertions;
 import com.facebook.react.bridge.ReadableArray;
+import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.common.MapBuilder;
 import com.facebook.react.uimanager.IllegalViewOperationException;
+import com.facebook.react.uimanager.ReactProp;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.ViewGroupManager;
 
@@ -55,13 +62,54 @@ public class TabLayoutManager extends ViewGroupManager<TabLayoutComponent> {
 					//Il faut donc supprimer toutes les tabs et les recréer:
 					root.removeAllTabs();
 
-					root.addTab(root.newTab().setText("Tab1"));
+					/*root.addTab(root.newTab().setText("Tab1"));
 					root.addTab(root.newTab().setText("Tab2"));
-					root.addTab(root.newTab().setText("Tab3"));
-				}
-				else
-					throw new IllegalViewOperationException("Nonexistent ViewPager instance. Null value received by "+getClass().getSimpleName());
-			break;
+					root.addTab(root.newTab().setText("Tab3"));*/
+
+					System.out.println("AYOUBBBBBBBBBBBB");
+					ReadableArray tabsSettings = args.getArray(1);
+					ReadableMap tabSettingMap = null;
+					for(int i = 0; i < tabsSettings.size(); i++) {
+						tabSettingMap = tabsSettings.getMap(i);
+						if(tabSettingMap != null) {
+							TabLayout.Tab tab = root.newTab();
+							if(tabSettingMap.hasKey("text")) tab.setText(tabSettingMap.getString("text"));
+							if(tabSettingMap.hasKey("icon"))
+								tab.setIcon(root.getResources().getDrawable(root.getDrawableID(tabSettingMap.getString("icon"))));
+
+							/*
+							//Custom View tab (notamment pour gérer taille texte et position icônes):
+							//Mais ne fonctionne pas avec setTabTextColors, on doit gérer nous même les changements de couleurs:
+							TextView tabOne = new TextView(root.getContext());
+							tabOne.setText("ONE");
+							//cf. http://developer.android.com/reference/android/widget/TextView.html#setCompoundDrawablesWithIntrinsicBounds(int, int, int, int)
+							tabOne.setCompoundDrawablesWithIntrinsicBounds(root.getDrawableID("ic_place"), 0, 0, 0);
+							tabOne.setTextSize(26);
+							tab.setCustomView(tabOne);
+							*/
+
+							root.addTab(tab);
+						}
+					}
+
+					/*
+					//Custom size View:
+					TabLayout.LayoutParams layoutParams = new TabLayout.LayoutParams(
+							ViewGroup.LayoutParams.MATCH_PARENT,
+							ViewGroup.LayoutParams.WRAP_CONTENT);
+					ViewGroup.LayoutParams params = root.getLayoutParams();
+					params.height = 2;
+					params.width = 2;
+					root.setLayoutParams(params);
+					*/
+
+					if(tabsSettings != null)
+						System.out.println("Good");
+					else
+						System.out.println("Empty TabsSettings");
+				} else
+					throw new IllegalViewOperationException("Nonexistent ViewPager instance. Null value received by " + getClass().getSimpleName());
+				break;
 			default:
 				throw new IllegalArgumentException(String.format(
 						"Unsupported command %d received by %s.",
@@ -74,7 +122,7 @@ public class TabLayoutManager extends ViewGroupManager<TabLayoutComponent> {
 	@Override
 	public Map<String, Integer> getCommandsMap() {
 		return MapBuilder.of(
-			"setupWithViewPager", COMMAND_SETUPWITHVIEWPAGER
+				"setupWithViewPager", COMMAND_SETUPWITHVIEWPAGER
 		);
 	}
 
@@ -106,5 +154,40 @@ public class TabLayoutManager extends ViewGroupManager<TabLayoutComponent> {
 	public void removeAllViews(TabLayoutComponent parent) {
 		//super.removeAllViews(parent);
 		parent.removeAllTabs();
+	}
+
+	@ReactProp(name = "tabColor")
+	public void propSetTabColor(TabLayoutComponent view, String color) {
+		view.setBackgroundColor(color);
+	}
+
+	@ReactProp(name = "indicatorTabColor")
+	public void propSetIndicatorColor(TabLayoutComponent view, String color) {
+		view.setSelectedTabIndicatorColor(color);
+	}
+
+	@ReactProp(name = "scrollable", defaultBoolean = true)
+	public void propSetTabMode(TabLayoutComponent view, boolean isScrollable) {
+		view.setTabMode(isScrollable);
+	}
+
+	@ReactProp(name = "indicatorTabHeight")
+	public void propSetSelectedTabIndicatorHeight(TabLayoutComponent view, int height) {
+		view._setSelectedTabIndicatorHeight(height);
+	}
+
+	@ReactProp(name = "textColor")
+	public void propSetTextColor(TabLayoutComponent view, String color) {
+		view.setTabTextColors(Color.parseColor(color), view.getTabTextColors().getDefaultColor());
+	}
+
+	@ReactProp(name = "selectedTextColor")
+	public void propSetSelectedTextColor(TabLayoutComponent view, String color) {
+		view.setTabTextColors(view.getTabTextColors().getDefaultColor(), Color.parseColor(color));
+	}
+
+	@ReactProp(name = "backgroundImage")
+	public void propSetBackgroundImage(TabLayoutComponent view, String filename) {
+		view.setBackgroundDrawable(filename);
 	}
 }

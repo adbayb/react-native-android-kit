@@ -34,7 +34,7 @@ public class FabComponent extends FloatingActionButton implements Node {
 	}
 
 	public void setImageDrawable(String filename) {
-		String imageName = getFilenameWithoutExtension(filename);
+		String imageName = this.getFilenameWithoutExtension(filename);
 		//Android n'accepte pas les fichiers contenant des -:
 		imageName.replace('-', '_');
 		//on récupérère le R.drawable.iconName:
