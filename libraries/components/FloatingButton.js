@@ -13,7 +13,7 @@ export default class FloatingButton extends Component {
 	static propTypes = {
 		...View.propTypes,
 		...TouchableWithoutFeedback.propTypes,
-		color: PropTypes.string,
+		backgroundColor: PropTypes.string,
 		rippleColor: PropTypes.string,
 		icon: PropTypes.string,
 		hide: PropTypes.bool,
@@ -35,7 +35,7 @@ export default class FloatingButton extends Component {
 			<TouchableWithoutFeedback {...this.props}>
 				<RNAKFloatingButton
 					style={this.props.style}
-					color={this.props.color}
+					backgroundColor={this.props.backgroundColor}
 					rippleColor={this.props.rippleColor}
 					icon={this.props.icon}
 					hide={this.props.hide}

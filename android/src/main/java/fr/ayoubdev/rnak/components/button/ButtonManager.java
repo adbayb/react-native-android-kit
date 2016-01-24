@@ -9,7 +9,7 @@ import fr.ayoubdev.rnak.utils.RNAKNode;
 /**
  * Created by Adib on 27/12/2015.
  */
-public class ButtonManager extends SimpleViewManager<ButtonComponent> {
+public class ButtonManager extends SimpleViewManager<ButtonView> {
 	private final static String REACT_CLASS = "ButtonAndroid";
 
 	@Override
@@ -18,15 +18,13 @@ public class ButtonManager extends SimpleViewManager<ButtonComponent> {
 	}
 
 	@Override
-	protected ButtonComponent createViewInstance(ThemedReactContext themedReactContext) {
-		ButtonComponent view = new ButtonComponent(themedReactContext);
-
-		return view;
+	protected ButtonView createViewInstance(ThemedReactContext themedReactContext) {
+		return new ButtonView(themedReactContext);
 	}
 
 	@Override
 	public LayoutShadowNode createShadowNodeInstance() {
-		return new RNAKNode<ButtonComponent>();
+		return new RNAKNode<ButtonView>();
 	}
 
 	@Override
@@ -34,23 +32,23 @@ public class ButtonManager extends SimpleViewManager<ButtonComponent> {
 		return RNAKNode.class;
 	}
 
-	@ReactProp(name = "color")
-	public void propSetColor(ButtonComponent view, String color) {
+	@ReactProp(name = "backgroundColor")
+	public void propSetColor(ButtonView view, String color) {
 		view.setBackgroundColor(color);
 	}
 
 	@ReactProp(name = "textColor")
-	public void propSetTextColor(ButtonComponent view, String color) {
+	public void propSetTextColor(ButtonView view, String color) {
 		view.setTextColor(color);
 	}
 
 	@ReactProp(name = "textSize")
-	public void propSetTextSize(ButtonComponent view, int size) {
+	public void propSetTextSize(ButtonView view, int size) {
 		view.setTextSize(size);
 	}
 
 	@ReactProp(name = "text")
-	public void propSetText(ButtonComponent view, String text) {
+	public void propSetText(ButtonView view, String text) {
 		view.setText(text);
 	}
 }

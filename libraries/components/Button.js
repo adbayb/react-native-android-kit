@@ -32,10 +32,10 @@ export default class Button extends Component {
 		...View.propTypes,
 		...TouchableWithoutFeedback.propTypes,
 		//Propriétés custom définies dans ButtonManager.java:
-		color: PropTypes.string,
+		backgroundColor: PropTypes.string,
 		textColor: PropTypes.string,
 		text: PropTypes.string,
-		textSize: PropTypes.number,
+		textSize: PropTypes.number
 	};
 
 	//Définition des valeurs par défault des propriétés.
@@ -89,7 +89,7 @@ export default class Button extends Component {
 			<TouchableWithoutFeedback {...this.props}>
 				<RNAKButton
 					style={this.props.style}
-					color={this.props.color}
+					backgroundColor={this.props.backgroundColor}
 					textColor={this.props.textColor}
 					textSize={this.props.textSize}
 					text={this.props.text}/>

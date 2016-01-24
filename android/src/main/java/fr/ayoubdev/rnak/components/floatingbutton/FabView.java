@@ -4,13 +4,14 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.support.design.widget.FloatingActionButton;
+import fr.ayoubdev.rnak.utils.RNAKDrawable;
 import fr.ayoubdev.rnak.utils.api.Node;
 
 /**
  * Created by Adib on 16/01/2016.
  */
-public class FabComponent extends FloatingActionButton implements Node {
-	public FabComponent(Context context) {
+public class FabView extends FloatingActionButton implements Node {
+	public FabView(Context context) {
 		super(context);
 		//Valeurs par défaut://Inutile: on le spécifie dans le js via defaultProps:
 		//this.show();
@@ -34,11 +35,7 @@ public class FabComponent extends FloatingActionButton implements Node {
 	}
 
 	public void setImageDrawable(String filename) {
-		String imageName = this.getFilenameWithoutExtension(filename);
-		//Android n'accepte pas les fichiers contenant des -:
-		imageName.replace('-', '_');
-		//on récupérère le R.drawable.iconName:
-		int id = this.getResources().getIdentifier(imageName, "drawable", this.getContext().getPackageName());
+		int id = RNAKDrawable.getDrawableID(this, filename);
 
 		//setBackgroundDrawable n'est pas implémenté, on utilise à la place la fonction héritée de ImageView setImageDrawable()
 		//(cf. https://android.googlesource.com/platform/frameworks/support/+/master/design/src/android/support/design/widget/FloatingActionButton.java):
@@ -59,8 +56,8 @@ public class FabComponent extends FloatingActionButton implements Node {
 	}
 
 	@Override
-	public FabComponent create(Context context) {
-		return new FabComponent(context);
+	public FabView create(Context context) {
+		return new FabView(context);
 	}
 
 	private String getFilenameWithoutExtension(String filename) {

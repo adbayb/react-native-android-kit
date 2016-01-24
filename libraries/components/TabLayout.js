@@ -12,13 +12,14 @@ export class TabLayout extends Component {
 	static REF_TABLAYOUT = 'refTabLayout';
 	static propTypes = {
 		...View.propTypes,
-		tabColor: React.PropTypes.string,
+		backgroundColor: React.PropTypes.string,
 		indicatorTabColor: React.PropTypes.string,
 		indicatorTabHeight: React.PropTypes.number,
-		textColor: React.PropTypes.string,
-		selectedTextColor: React.PropTypes.string,
+		//textColor: React.PropTypes.string,
+		//selectedTextColor: React.PropTypes.string,
 		scrollable: React.PropTypes.bool,
-		backgroundImage: React.PropTypes.string
+		backgroundImage: React.PropTypes.string,
+		center: React.PropTypes.bool
 	};
 	static defaultProps = {
 		height: 60,
@@ -98,7 +99,7 @@ export class TabLayout extends Component {
 		);
 		//React.UIManager['TabLayoutAndroid'].Commands['setupWithViewPager'] <=> React.UIManager.TabLayoutAndroid.Commands.setupWithViewPager
 	}
-
+	
 	render() {
 		/* ViewPagerAndroid ne peut pas être en parent sinon erreur: "Each ViewPager child must be a <View>"
 		 Or RNAKTabLayout est de type TabLayout:*/
@@ -122,7 +123,16 @@ export class Tab extends Component {
 	static propTypes = {
 		...View.propTypes,
 		text: React.PropTypes.string,
-		icon: React.PropTypes.string
+		textSize: PropTypes.number,
+		icon: React.PropTypes.string,
+		iconPosition: React.PropTypes.string,
+		textColor: React.PropTypes.string,
+		selectedTextColor: React.PropTypes.string
+	};
+	static defaultProps = {
+		//iconPosition: 'top',//Inutile valeur par défaut gérée en java
+		textColor: 'grey',
+		selectedTextColor: 'black'
 	};
 
 	constructor(props) {
