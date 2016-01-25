@@ -100,21 +100,55 @@ export class TabLayout extends Component {
 		);
 		//React.UIManager['TabLayoutAndroid'].Commands['setupWithViewPager'] <=> React.UIManager.TabLayoutAndroid.Commands.setupWithViewPager
 	}
-	
+
 	render() {
 		/* ViewPagerAndroid ne peut pas être en parent sinon erreur: "Each ViewPager child must be a <View>"
 		 Or RNAKTabLayout est de type TabLayout:*/
 		//Aucun poids n'est attribué à RNAKTabLayout car il a une hauteur fixe par défaut;
 		//ViewPager a un poids flex égal à 1 (flex:1 ~= flex-grow:1) pour lui permettre
 		//tout l'espace libre restant du composant root View:
+		let {
+			//Props TabLayoutAndroid:
+			backgroundColor,
+			indicatorTabColor,
+			indicatorTabHeight,
+			scrollable,
+			backgroundImage,
+			center,
+			//Props ViewPagerAndroid:
+			initialPage,
+			keyboardDismissMode,
+			onPageScroll,
+			onPageSelected,
+			//On isole les propriétés View via ...other:
+			...viewProps
+		} = this.props;
+		//On applique les proprités View passé à TabLayoutAndroid seulement à RNAKTabLayout:
+		//car hauteur, etc ne doit être customisé que sur les tabs. ViewPager et View
+		//doivent eux occuper toute la page sans possibilité de custom via propriétés View:
 		return (
 			<View style={{flex:1}}>
+
 				<RNAKTabLayout ref={TabLayout.REF_TABLAYOUT}
-					{...this.props}>
+					{...viewProps}
+							   backgroundColor={backgroundColor}
+							   indicatorTabColor={indicatorTabColor}
+							   indicatorTabHeight={indicatorTabHeight}
+							   scrollable={scrollable}
+							   backgroundImage={backgroundImage}
+							   center={center}>
 				</RNAKTabLayout>
-				<ViewPagerAndroid ref={TabLayout.REF_VIEWPAGER} style={{flex:1}} {...this.props}>
+
+				<ViewPagerAndroid ref={TabLayout.REF_VIEWPAGER}
+								  style={{flex:1}}
+								  initialPage={initialPage}
+								  keyboardDismissMode={keyboardDismissMode}
+								  onPageScroll={onPageScroll}
+								  onPageSelected={onPageSelected}>
+
 					{this.manageChildren()}
 				</ViewPagerAndroid>
+
 			</View>
 		);
 	}
@@ -128,12 +162,14 @@ export class Tab extends Component {
 		icon: React.PropTypes.string,
 		iconPosition: React.PropTypes.string,
 		textColor: React.PropTypes.string,
-		selectedTextColor: React.PropTypes.string
+		selectedTextColor: React.PropTypes.string,
+		customView: React.PropTypes.bool
 	};
 	static defaultProps = {
 		//iconPosition: 'top',//Inutile valeur par défaut gérée en java
 		textColor: 'grey',
-		selectedTextColor: 'black'
+		selectedTextColor: 'black',
+		customView: true
 	};
 
 	constructor(props) {

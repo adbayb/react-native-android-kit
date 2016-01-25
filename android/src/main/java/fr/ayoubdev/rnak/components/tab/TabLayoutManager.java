@@ -156,7 +156,13 @@ public class TabLayoutManager extends ViewGroupManager<TabLayoutView> {
 				for(int i = 0; i < tabsSettings.size(); i++) {
 					tabSettingsMap = tabsSettings.getMap(i);
 					if(tabSettingsMap != null) {
-						view.attachCustomTab(tabSettingsMap);
+						if(tabSettingsMap.hasKey("customView")) {
+							boolean customView = tabSettingsMap.getBoolean("customView");
+							if(customView)
+								view.attachCustomTab(tabSettingsMap);
+							else
+								view.attachTab(tabSettingsMap);
+						}
 					} else
 						return false;
 				}
