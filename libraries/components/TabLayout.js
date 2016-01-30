@@ -41,27 +41,17 @@ export class TabLayout extends Component {
 		let children = this.props.children;
 		if(children) {
 			if(!this.containMixViews(children)) {
-				this.props.children.forEach((obj, key, array) => {
-					/*let {
-					 children,
-					 ...others
-					 } = obj.props;*/
-					//let tabSettings = {};
-					let tabSettings = new Object;
-					for(let propKey in obj.props) {
-						//On exclue les objets dans notre array pour éviter les boucles
-						//cycliques dans les propriétés des children lors de l'envoie
-						//du tableau de propriétés à notre code natif:
-						let propValue = obj.props[propKey];
-						if(typeof propValue !== 'object')
-							tabSettings[propKey] = propValue;
-					}
-					this.tabsSettings.push(tabSettings);
-				});
+				if(Array.isArray(this.props.children)) {
+					this.props.children.forEach((obj, key, array) => {
+						this.tabsSettings.push(this.getChildProps(obj));
+					});
+				}
+				else 
+					this.tabsSettings.push(this.getChildProps(children));
 
 				return children;
 			}
-
+			
 			console.warn('TabLayoutAndroid View must only have TabAndroid as direct children');
 			return null;
 		}
@@ -70,20 +60,51 @@ export class TabLayout extends Component {
 			return null;
 		}
 	}
+	
+	getChildProps(child) {
+		/*let {
+		 children,
+		 ...others
+		 } = obj.props;*/
+		//let tabSettings = {};
+		if(child) {
+			let tabSettings = new Object;
+			for(let propKey in child.props) {
+				//On exclue les objets dans notre array pour éviter les boucles
+				//cycliques dans les propriétés des children lors de l'envoie
+				//du tableau de propriétés à notre code natif:
+				let propValue = child.props[propKey];
+				if(typeof propValue !== 'object')
+					tabSettings[propKey] = propValue;
+			}
+			
+			return tabSettings;
+		}
+		console.warn('No Children, use TabAndroid tag to add some children');
+		return null;
+	}
 
 	//TabLayoutAndroid ne doit contenir que des vues Tab pour gérer tabsSettings,
 	//containMixViews permet de checker la présence de vues mixtes (or Tab)
 	//retourne true si vues mixtes:
 	containMixViews(children) {
 		if(children) {
-			//some() renvoie true si la fonction callback renvoie true pour
-			//au moins un des éléments du tableau, sinon elle renvoie false:
-			return children.some((obj, key, array) => {
-				if(obj.type.name !== 'TabAndroid' || obj.type.__proto__.name !== 'Tab')
+			//Bug fix: si une seule tab, children n'est plus un Array d'Object mais un Object 
+			//les fonctions some, forEach... spécifique à Array ne sont pas possible si 1 tab (undefined exception):
+			if(Array.isArray(children)) {//tableau de children donc plusieurs tabs:
+				//some() renvoie true si la fonction callback renvoie true pour
+				//au moins un des éléments du tableau, sinon elle renvoie false:
+				return children.some((obj, key, array) => {
+					if(obj.type.name !== 'TabAndroid' || obj.type.__proto__.name !== 'Tab')
+						return true;
+				});
+			}
+			else {//1 seule tab donc pas d'array mais un object seul:
+				if(children.type.name !== 'TabAndroid' || children.type.__proto__.name !== 'Tab')
 					return true;
-			});
+			}
 		}
-		return true;
+		return false;
 	}
 
 	attachViewPager() {
