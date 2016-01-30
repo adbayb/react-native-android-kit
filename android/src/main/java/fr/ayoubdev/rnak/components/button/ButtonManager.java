@@ -4,7 +4,6 @@ import com.facebook.react.uimanager.LayoutShadowNode;
 import com.facebook.react.uimanager.ReactProp;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
-import fr.ayoubdev.rnak.utils.RNAKNode;
 
 /**
  * Created by Adib on 27/12/2015.
@@ -24,12 +23,12 @@ public class ButtonManager extends SimpleViewManager<ButtonView> {
 
 	@Override
 	public LayoutShadowNode createShadowNodeInstance() {
-		return new RNAKNode<ButtonView>();
+		return new ButtonNode();
 	}
 
 	@Override
 	public Class getShadowNodeClass() {
-		return RNAKNode.class;
+		return ButtonNode.class;
 	}
 
 	@ReactProp(name = "backgroundColor")

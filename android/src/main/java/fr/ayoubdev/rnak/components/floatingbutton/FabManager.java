@@ -4,7 +4,6 @@ import com.facebook.react.uimanager.LayoutShadowNode;
 import com.facebook.react.uimanager.ReactProp;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
-import fr.ayoubdev.rnak.utils.RNAKNode;
 
 /**
  * Created by Adib on 16/01/2016.
@@ -24,12 +23,12 @@ public class FabManager extends SimpleViewManager<FabView> {
 
 	@Override
 	public LayoutShadowNode createShadowNodeInstance() {
-		return new RNAKNode<FabView>();
+		return new FabNode();
 	}
 
 	@Override
 	public Class getShadowNodeClass() {
-		return RNAKNode.class;
+		return FabNode.class;
 	}
 
 	@ReactProp(name = "icon")

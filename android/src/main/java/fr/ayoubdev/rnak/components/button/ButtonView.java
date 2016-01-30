@@ -5,12 +5,11 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.util.TypedValue;
 import android.widget.Button;
-import fr.ayoubdev.rnak.utils.api.Node;
 
 /**
  * Created by Adib on 27/12/2015.
  */
-public class ButtonView extends Button implements Node {
+public class ButtonView extends Button {
 	public ButtonView(Context context) {
 		super(context);
 
@@ -44,10 +43,5 @@ public class ButtonView extends Button implements Node {
 		super.setTextSize(TypedValue.COMPLEX_UNIT_SP, size);
 
 		return;
-	}
-
-	@Override
-	public ButtonView create(Context context) {
-		return new ButtonView(context);
 	}
 }

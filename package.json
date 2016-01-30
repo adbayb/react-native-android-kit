@@ -1,10 +1,41 @@
 {
 	"name": "react-native-android-kit",
-	"version": "0.0.1",
-	"description": "Android Native Kit for React-Native",
-	"main": "libraries/main.js",
+	"version": "1.0.0",
+	"description": "A set of native Android UI components and modules for React Native framework",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ayoubdev/react-native-android-kit.git"
+	},
+	"keywords": [
+		"react",
+		"react-native",
+		"react-native-android-kit",
+		"android",
+		"android",
+		"support",
+		"design",
+		"support",
+		"library",
+		"Button",
+		"TabLayout",
+		"FloatingActionButton",
+		"material-design",
+		"material",
+		"design",
+		"google",
+		"ayoub",
+		"adib"
+	],
 	"author": "Ayoub ADIB <ayoub.adib.dev@gmail.com>",
-	"licence": "GPL-2.0",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/ayoubdev/react-native-android-kit/issues"
+	},
+	"homepage": "https://github.com/ayoubdev/react-native-android-kit#readme",
+	"main": "libraries/main.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
 	"dependencies": {
 		"react-native": ">=0.11.0"
 	},
@@ -13,3 +44,6 @@
 		"eslint-plugin-react": ">=3.13.1"
 	}
 }
+
+
+

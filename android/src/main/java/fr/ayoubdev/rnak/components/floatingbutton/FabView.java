@@ -5,12 +5,11 @@ import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.support.design.widget.FloatingActionButton;
 import fr.ayoubdev.rnak.utils.RNAKDrawable;
-import fr.ayoubdev.rnak.utils.api.Node;
 
 /**
  * Created by Adib on 16/01/2016.
  */
-public class FabView extends FloatingActionButton implements Node {
+public class FabView extends FloatingActionButton {
 	public FabView(Context context) {
 		super(context);
 		//Valeurs par défaut://Inutile: on le spécifie dans le js via defaultProps:
@@ -53,11 +52,6 @@ public class FabView extends FloatingActionButton implements Node {
 			this.show();
 
 		return;
-	}
-
-	@Override
-	public FabView create(Context context) {
-		return new FabView(context);
 	}
 
 	private String getFilenameWithoutExtension(String filename) {
