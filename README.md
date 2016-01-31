@@ -1,4 +1,4 @@
-# React Native Android Kit 
+# React Native Android Kit <br/> [![npm version](https://img.shields.io/badge/npm-v1.0.1-green.svg)](https://www.npmjs.com/package/react-native-android-kit)
 
 A set of native Android UI components and modules for React Native framework. 
 The purpose of this kit is to offer to React Native developers some new Android native components that are currently not implemented by React Native core team. 
