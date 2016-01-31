@@ -10,17 +10,17 @@ For example, some components from Android Design Support Library are now availab
 - [Getting Started](#getting-started)
 - [Components](#components)
 	* [TabLayoutAndroid](#tablayoutandroid)
-		* [Introduction](#introduction)
-		* [Props](#props)
-		* [Example](#example)
+		* [Introduction](#introduction-1)
+		* [Props](#props-1)
+		* [Example](#example-1)
 	* [ButtonAndroid](#buttonandroid)
-		* [Introduction](#introduction)
-		* [Props](#props)
-		* [Example](#example)
+		* [Introduction](#introduction-2)
+		* [Props](#props-2)
+		* [Example](#example-2)
 	* [FloatingButtonAndroid](#floatingbuttonandroid)
-		* [Introduction](#introduction)
-		* [Props](#props)
-		* [Example](#example)
+		* [Introduction](#introduction-3)
+		* [Props](#props-3)
+		* [Example](#example-3)
 - [Modules](#modules)
 - [Misc](#misc)
 	* [Color](#color)
@@ -286,7 +286,7 @@ Nothing for now ( maybe Snackbar module soon, stay tuned :) )
 <br/>
 ### Color
 
-Color value is set via a string input. <br/>
+Color value property is set via a string input. <br/>
 Supported formats are: '#RRGGBB' , '#AARRGGBB' or one of the following names: 'red', 'blue', 'green', 'black', 'white', 'gray', 'cyan', 'magenta', 'yellow', 'lightgray', 'darkgray', 'grey', 'lightgrey', 'darkgrey', 'aqua', 'fuchsia', 'lime', 'maroon', 'navy', 'olive', 'purple', 'silver', 'teal'.
 
 <br/>
