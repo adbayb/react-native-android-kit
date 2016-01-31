@@ -104,6 +104,7 @@ export class TabLayout extends Component {
 					return true;
 			}
 		}
+		//empty children: nothing so no mix views:
 		return false;
 	}
 

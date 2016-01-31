@@ -16,13 +16,13 @@ export default class FloatingButton extends Component {
 		backgroundColor: PropTypes.string,
 		rippleColor: PropTypes.string,
 		icon: PropTypes.string,
-		hide: PropTypes.bool,
+		hidden: PropTypes.bool,
 		rippleEffect: PropTypes.bool
 	};
 
 	static defaultProps = {
 		style: {width: 50, height: 50},
-		hide: false,
+		hidden: false,
 		rippleEffect: true
 	};
 
@@ -38,7 +38,7 @@ export default class FloatingButton extends Component {
 					backgroundColor={this.props.backgroundColor}
 					rippleColor={this.props.rippleColor}
 					icon={this.props.icon}
-					hide={this.props.hide}
+					hidden={this.props.hidden}
 					rippleEffect={this.props.rippleEffect}/>
 			</TouchableWithoutFeedback>
 		);
