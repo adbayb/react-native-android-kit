@@ -234,7 +234,7 @@ For more details, see: [Native FloatingActionButton documentation](http://develo
 > **icon** string *optional* <br/>Sets the button icon (see [Drawable](#drawable)).<br/><br/>
 > **backgroundColor** [color](#color) *optional* <br/>Sets the background color.<br/><br/>
 > **rippleColor** [color](#color) *optional* <br/>Sets the ripple color.<br/><br/>
-> **hidden** boolean *optional, default = false* <br/>Hides/Shows the button: <br/>true = Shows the button.<br/>false = Hides the button.<br/><br/>
+> **hidden** boolean *optional, default = false* <br/>Hides/Shows the button: <br/>true = Hides the button.<br/>false = Shows the button.<br/><br/>
 > **rippleEffect** boolean *optional, default = true* <br/>Defines whether this view reacts to click by a ripple effect or not: <br/>true = Ripple effect enabled.<br/>false = Ripple effect disabled.<br/><br/>
 
 #### Example:
