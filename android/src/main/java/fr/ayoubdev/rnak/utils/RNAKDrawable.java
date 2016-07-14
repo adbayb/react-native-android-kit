@@ -2,9 +2,7 @@ package fr.ayoubdev.rnak.utils;
 
 import android.view.View;
 
-/**
- * Created by Adib on 24/01/2016.
- */
+
 public class RNAKDrawable {
 	public static <T extends View> int getDrawableID(T view, String filename) {
 		String imageName = getFilenameWithoutExtension(filename);
