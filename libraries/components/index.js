@@ -5,14 +5,14 @@ import {TabLayout, Tab} from "./TabLayout";
 import UnAvailableView from "./UnAvailableView";
 
 if(Platform.OS === 'android') {
-	exports.ButtonComponent = Button;
-	exports.FloatingButtonComponent = FloatingButton;
-	exports.TabLayoutComponent = TabLayout;
-	exports.TabComponent = Tab;
+	exports.ButtonAndroid = class ButtonAndroid extends Button {};
+	exports.FloatingButtonAndroid = class FloatingButtonAndroid extends FloatingButton {};
+	exports.TabLayoutAndroid = class TabLayoutAndroid extends TabLayout {};
+	exports.TabAndroid = class TabAndroid extends Tab {};
 }
 else {
-	exports.ButtonComponent = UnAvailableView;
-	exports.FloatingButtonComponent = UnAvailableView;
-	exports.TabLayoutComponent = UnAvailableView;
-	exports.TabComponent = UnAvailableView;
+	exports.ButtonAndroid = UnAvailableView;
+	exports.FloatingButtonAndroid = UnAvailableView;
+	exports.TabLayoutAndroid = UnAvailableView;
+	exports.TabAndroid = UnAvailableView;
 }

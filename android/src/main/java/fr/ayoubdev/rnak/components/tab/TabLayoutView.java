@@ -40,7 +40,6 @@ public class TabLayoutView extends TabLayout {
 	}
 
 	public void _setSelectedTabIndicatorHeight(int height) {
-		//Conversion pixel en densité de pixels indépendant:
 		int scaledHeight = (int) (height * this.getResources().getDisplayMetrics().density);
 		super.setSelectedTabIndicatorHeight(scaledHeight);
 

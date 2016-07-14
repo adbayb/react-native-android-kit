@@ -2,32 +2,33 @@ package fr.ayoubdev.rnak.components.floatingbutton;
 
 import android.view.View;
 import android.view.ViewGroup;
+import com.facebook.csslayout.CSSMeasureMode;
 import com.facebook.csslayout.CSSNode;
 import com.facebook.csslayout.MeasureOutput;
 import com.facebook.react.uimanager.LayoutShadowNode;
 
 public class FabNode extends LayoutShadowNode implements CSSNode.MeasureFunction {
-	private int measuredWidth;
-	private int measuredHeight;
-	private boolean measured;
+	private int mWidth;
+	private int mHeight;
+	private boolean mMeasured;
 
 	public FabNode() {
 		setMeasureFunction(this);
 	}
 
 	@Override
-	public void measure(CSSNode cssNode, float v, MeasureOutput measureOutput) {
-		if(!this.measured) {
-			FabView node = new FabView(this.getThemedContext());
+	public void measure(CSSNode node, float width, CSSMeasureMode widthMode, float height, CSSMeasureMode heightMode, MeasureOutput measureOutput) {
+		if(!mMeasured) {
+			FabView nodeView = new FabView(getThemedContext());
 			final int spec = View.MeasureSpec.makeMeasureSpec(
 					ViewGroup.LayoutParams.WRAP_CONTENT,
 					View.MeasureSpec.UNSPECIFIED);
-			node.measure(spec, spec);
-			this.measuredWidth = node.getMeasuredWidth();
-			this.measuredHeight = node.getMeasuredHeight();
-			this.measured = true;
+			nodeView.measure(spec, spec);
+			mWidth = nodeView.getMeasuredWidth();
+			mHeight = nodeView.getMeasuredHeight();
+			mMeasured = true;
 		}
-		measureOutput.width = measuredWidth;
-		measureOutput.height = measuredHeight;
+		measureOutput.width = mWidth;
+		measureOutput.height = mHeight;
 	}
 }

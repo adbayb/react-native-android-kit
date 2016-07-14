@@ -4,23 +4,26 @@ import React, {
 } from "react";
 import {
 	View,
-	ViewPagerAndroid
+	ViewPagerAndroid,
+	requireNativeComponent,
+	findNodeHandle,
+	UIManager
 } from "react-native";
 
-const RNAKTabLayout = React.requireNativeComponent('TabLayoutAndroid', TabLayout, {});
+const RNAKTabLayout = requireNativeComponent('TabLayoutAndroid', TabLayout, {});
 
-export class TabLayout extends Component {
+class TabLayout extends Component {
 	static REF_VIEWPAGER = 'refViewPager';
 	static REF_TABLAYOUT = 'refTabLayout';
 	static propTypes = {
 		...View.propTypes,
 		...ViewPagerAndroid.propTypes,
-		backgroundColor: React.PropTypes.string,
-		indicatorTabColor: React.PropTypes.string,
-		indicatorTabHeight: React.PropTypes.number,
-		scrollable: React.PropTypes.bool,
-		backgroundImage: React.PropTypes.string,
-		center: React.PropTypes.bool
+		backgroundColor: PropTypes.string,
+		indicatorTabColor: PropTypes.string,
+		indicatorTabHeight: PropTypes.number,
+		scrollable: PropTypes.bool,
+		backgroundImage: PropTypes.string,
+		center: PropTypes.bool
 	};
 	static defaultProps = {
 		height: 60,
@@ -92,11 +95,11 @@ export class TabLayout extends Component {
 	}
 
 	attachViewPager() {
-		let viewPagerId = React.findNodeHandle(this.refs[TabLayout.REF_VIEWPAGER]);
+		let viewPagerId = findNodeHandle(this.refs[TabLayout.REF_VIEWPAGER]);
 
-		React.UIManager.dispatchViewManagerCommand(
-			React.findNodeHandle(this.refs[TabLayout.REF_TABLAYOUT]),
-			React.UIManager['TabLayoutAndroid'].Commands['setupWithViewPager'],
+		UIManager.dispatchViewManagerCommand(
+			findNodeHandle(this.refs[TabLayout.REF_TABLAYOUT]),
+			UIManager['TabLayoutAndroid'].Commands['setupWithViewPager'],
 			[viewPagerId, this.tabsSettings]
 		);
 	}
@@ -144,16 +147,16 @@ export class TabLayout extends Component {
 	}
 }
 
-export class Tab extends Component {
+class Tab extends Component {
 	static propTypes = {
 		...View.propTypes,
-		text: React.PropTypes.string,
+		text: PropTypes.string,
 		textSize: PropTypes.number,
-		icon: React.PropTypes.string,
-		iconPosition: React.PropTypes.string,
-		textColor: React.PropTypes.string,
-		selectedTextColor: React.PropTypes.string,
-		customView: React.PropTypes.bool
+		icon: PropTypes.string,
+		iconPosition: PropTypes.string,
+		textColor: PropTypes.string,
+		selectedTextColor: PropTypes.string,
+		customView: PropTypes.bool
 	};
 	static defaultProps = {
 		textColor: 'grey',
@@ -173,3 +176,8 @@ export class Tab extends Component {
 		);
 	}
 }
+
+export {
+	TabLayout,
+	Tab
+};
