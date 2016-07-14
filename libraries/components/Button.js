@@ -1,7 +1,8 @@
-import React from 'react-native';
-import {
+import React, {
 	Component,
-	PropTypes,
+	PropTypes
+} from 'react';
+import {
 	View,
 	TouchableWithoutFeedback,
 	requireNativeComponent

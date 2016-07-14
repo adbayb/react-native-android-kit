@@ -1,4 +1,11 @@
-import React, {Component, PropTypes, View, ViewPagerAndroid} from "react-native";
+import React, {
+	Component,
+	PropTypes
+} from "react";
+import {
+	View,
+	ViewPagerAndroid
+} from "react-native";
 
 const RNAKTabLayout = React.requireNativeComponent('TabLayoutAndroid', TabLayout, {});
 
