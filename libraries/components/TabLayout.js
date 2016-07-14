@@ -3,11 +3,6 @@ import React, {Component, PropTypes, View, ViewPagerAndroid} from "react-native"
 const RNAKTabLayout = React.requireNativeComponent('TabLayoutAndroid', TabLayout, {});
 
 export class TabLayout extends Component {
-	//static variable non supporté par es6, il faut utiliser méthode static get pour en simuler le comportement:
-	/*static get REF_VIEWPAGER() {
-	 return 'ViewPager';
-	 }*/
-	//Mais babel accepte pour react les variables statiques: cf. http://babeljs.io/blog/2015/06/07/react-on-es6-plus/
 	static REF_VIEWPAGER = 'refViewPager';
 	static REF_TABLAYOUT = 'refTabLayout';
 	static propTypes = {
@@ -16,8 +11,6 @@ export class TabLayout extends Component {
 		backgroundColor: React.PropTypes.string,
 		indicatorTabColor: React.PropTypes.string,
 		indicatorTabHeight: React.PropTypes.number,
-		//textColor: React.PropTypes.string,
-		//selectedTextColor: React.PropTypes.string,
 		scrollable: React.PropTypes.bool,
 		backgroundImage: React.PropTypes.string,
 		center: React.PropTypes.bool
@@ -32,8 +25,6 @@ export class TabLayout extends Component {
 	}
 
 	componentDidMount() {
-		//Nous dispatchons nos commandes à notre code natif lorsque le composant
-		//est monté (pour être certain que tous les composants ont bien été référencés):
 		this.attachViewPager();
 	}
 
@@ -46,12 +37,12 @@ export class TabLayout extends Component {
 						this.tabsSettings.push(this.getChildProps(obj));
 					});
 				}
-				else 
+				else
 					this.tabsSettings.push(this.getChildProps(children));
 
 				return children;
 			}
-			
+
 			console.warn('TabLayoutAndroid View must only have TabAndroid as direct children');
 			return null;
 		}
@@ -60,94 +51,64 @@ export class TabLayout extends Component {
 			return null;
 		}
 	}
-	
+
 	getChildProps(child) {
-		/*let {
-		 children,
-		 ...others
-		 } = obj.props;*/
-		//let tabSettings = {};
 		if(child) {
 			let tabSettings = new Object;
 			for(let propKey in child.props) {
-				//On exclue les objets dans notre array pour éviter les boucles
-				//cycliques dans les propriétés des children lors de l'envoie
-				//du tableau de propriétés à notre code natif:
 				let propValue = child.props[propKey];
 				if(typeof propValue !== 'object')
 					tabSettings[propKey] = propValue;
 			}
-			
+
 			return tabSettings;
 		}
 		console.warn('No Children, use TabAndroid tag to add some children');
 		return null;
 	}
 
-	//TabLayoutAndroid ne doit contenir que des vues Tab pour gérer tabsSettings,
-	//containMixViews permet de checker la présence de vues mixtes (or Tab)
-	//retourne true si vues mixtes:
 	containMixViews(children) {
 		if(children) {
-			//Bug fix: si une seule tab, children n'est plus un Array d'Object mais un Object 
-			//les fonctions some, forEach... spécifique à Array ne sont pas possible si 1 tab (undefined exception):
-			if(Array.isArray(children)) {//tableau de children donc plusieurs tabs:
-				//some() renvoie true si la fonction callback renvoie true pour
-				//au moins un des éléments du tableau, sinon elle renvoie false:
+			if(Array.isArray(children)) {
 				return children.some((obj, key, array) => {
 					if(obj.type.name !== 'TabAndroid' || obj.type.__proto__.name !== 'Tab')
 						return true;
 				});
 			}
-			else {//1 seule tab donc pas d'array mais un object seul:
+			else {
 				if(children.type.name !== 'TabAndroid' || children.type.__proto__.name !== 'Tab')
 					return true;
 			}
 		}
-		//empty children: nothing so no mix views:
+
 		return false;
 	}
 
 	attachViewPager() {
-		//findNodeHandle retourne l'id du node référencé dans render du composant:
-		//let viewPagerId = React.findNodeHandle(this.refs.refViewPager);
 		let viewPagerId = React.findNodeHandle(this.refs[TabLayout.REF_VIEWPAGER]);
 
-		//On envoie l'id du composant ViewPager à notre composant natif TabLayoutAndroid
-		//pour construire notre TabLayout avec notre ViewPager via la commande native setupWithViewPager:
 		React.UIManager.dispatchViewManagerCommand(
 			React.findNodeHandle(this.refs[TabLayout.REF_TABLAYOUT]),
 			React.UIManager['TabLayoutAndroid'].Commands['setupWithViewPager'],
 			[viewPagerId, this.tabsSettings]
 		);
-		//React.UIManager['TabLayoutAndroid'].Commands['setupWithViewPager'] <=> React.UIManager.TabLayoutAndroid.Commands.setupWithViewPager
 	}
 
 	render() {
-		/* ViewPagerAndroid ne peut pas être en parent sinon erreur: "Each ViewPager child must be a <View>"
-		 Or RNAKTabLayout est de type TabLayout:*/
-		//Aucun poids n'est attribué à RNAKTabLayout car il a une hauteur fixe par défaut;
-		//ViewPager a un poids flex égal à 1 (flex:1 ~= flex-grow:1) pour lui permettre
-		//tout l'espace libre restant du composant root View:
 		let {
-			//Props TabLayoutAndroid:
 			backgroundColor,
 			indicatorTabColor,
 			indicatorTabHeight,
 			scrollable,
 			backgroundImage,
 			center,
-			//Props ViewPagerAndroid:
 			initialPage,
 			keyboardDismissMode,
 			onPageScroll,
 			onPageSelected,
-			//On isole les propriétés View via ...other:
 			...viewProps
 		} = this.props;
-		//On applique les proprités View passé à TabLayoutAndroid seulement à RNAKTabLayout:
-		//car hauteur, etc ne doit être customisé que sur les tabs. ViewPager et View
-		//doivent eux occuper toute la page sans possibilité de custom via propriétés View:
+
 		return (
 			<View style={{flex:1}}>
 
@@ -188,7 +149,6 @@ export class Tab extends Component {
 		customView: React.PropTypes.bool
 	};
 	static defaultProps = {
-		//iconPosition: 'top',//Inutile valeur par défaut gérée en java
 		textColor: 'grey',
 		selectedTextColor: 'black',
 		customView: true

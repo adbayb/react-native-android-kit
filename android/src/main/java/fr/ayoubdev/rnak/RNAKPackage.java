@@ -13,9 +13,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * Created by Adib on 27/12/2015.
- */
 public class RNAKPackage implements ReactPackage {
 	@Override
 	public List<NativeModule> createNativeModules(ReactApplicationContext reactApplicationContext) {

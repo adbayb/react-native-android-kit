@@ -7,19 +7,12 @@ import android.support.design.widget.TabLayout;
 import com.facebook.react.bridge.ReadableMap;
 import fr.ayoubdev.rnak.utils.RNAKDrawable;
 
-/**
- * Created by Adib on 05/01/2016.
- */
 public class TabLayoutView extends TabLayout {
 	public TabLayoutView(Context context) {
 		super(context);
 	}
 
 	public void setBackgroundDrawable(String filename) {
-		//setBackgroundDrawable n'est pas implémenté, on utilise à la place la fonction héritée de ImageView setImageDrawable()
-		//(cf. https://android.googlesource.com/platform/frameworks/support/+/master/design/src/android/support/design/widget/FloatingActionButton.java):
-		//view.setBackgroundDrawable(view.getResources().getDrawable(com.facebook.stetho.R.drawable.abc_btn_check_to_on_mtrl_015));
-		//view.setImageDrawable(view.getResources().getDrawable(com.facebook.stetho.R.drawable.abc_btn_check_to_on_mtrl_015));
 		super.setBackground(this.getResources().getDrawable(RNAKDrawable.getDrawableID(this, filename)));
 
 		return;
@@ -76,8 +69,6 @@ public class TabLayoutView extends TabLayout {
 	}
 
 	public void setTabGravity(boolean isCenter) {
-		//Switch entre GRAVITY_FILL et GRAVITY_CENTER ne prend effet que si tab en MODE_FIXED
-		//(en mode scrollable, toujours GRAVITY_FILL):
 		if(isCenter)
 			super.setTabGravity(TabLayoutView.GRAVITY_CENTER);
 		else
@@ -97,17 +88,6 @@ public class TabLayoutView extends TabLayout {
 			this.addTab(tab);
 
 			return true;
-
-			/*
-			//Custom size View:
-			TabLayout.LayoutParams layoutParams = new TabLayout.LayoutParams(
-					ViewGroup.LayoutParams.MATCH_PARENT,
-					ViewGroup.LayoutParams.WRAP_CONTENT);
-			ViewGroup.LayoutParams params = this.getLayoutParams();
-			params.height = 2;
-			params.width = 2;
-			this.setLayoutParams(params);
-			*/
 		}
 		return false;
 	}

@@ -5,9 +5,6 @@ import com.facebook.react.uimanager.ReactProp;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
 
-/**
- * Created by Adib on 27/12/2015.
- */
 public class ButtonManager extends SimpleViewManager<ButtonView> {
 	private final static String REACT_CLASS = "ButtonAndroid";
 

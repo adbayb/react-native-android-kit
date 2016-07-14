@@ -1,9 +1,3 @@
-//Avec ES5:
-//exports.Components = require('./components');
-//exports.SwitchAndroidTest = exports.Components.Switch;
-//exports.ButtonAndroid = exports.Components.Button;
-
-//Avec ES6:
 import {
 	ButtonComponent,
 	FloatingButtonComponent,

@@ -8,10 +8,8 @@ import android.view.View;
 public class RNAKDrawable {
 	public static <T extends View> int getDrawableID(T view, String filename) {
 		String imageName = getFilenameWithoutExtension(filename);
-		//Android n'accepte pas les fichiers contenant des -:
 		imageName.replace('-', '_');
 
-		//on récupérère le R.drawable.iconName:
 		return view.getResources().getIdentifier(imageName, "drawable", view.getContext().getPackageName());
 	}
 

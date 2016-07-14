@@ -5,9 +5,6 @@ import com.facebook.react.uimanager.ReactProp;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
 
-/**
- * Created by Adib on 16/01/2016.
- */
 public class FabManager extends SimpleViewManager<FabView> {
 	private final static String REACT_CLASS = "FloatingButtonAndroid";
 
@@ -53,7 +50,6 @@ public class FabManager extends SimpleViewManager<FabView> {
 
 	@ReactProp(name = "rippleEffect", defaultBoolean = true)
 	public void propSetRippleEffect(FabView view, boolean rippleEffect) {
-		//si on ne rend pas notre FAB clickable, l'effet ripple ne sera pas appliqué:
 		view.setClickable(rippleEffect);
 	}
 }

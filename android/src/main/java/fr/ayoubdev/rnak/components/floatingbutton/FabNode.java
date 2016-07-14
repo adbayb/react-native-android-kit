@@ -6,9 +6,6 @@ import com.facebook.csslayout.CSSNode;
 import com.facebook.csslayout.MeasureOutput;
 import com.facebook.react.uimanager.LayoutShadowNode;
 
-/**
- * Created by Adib on 30/01/2016.
- */
 public class FabNode extends LayoutShadowNode implements CSSNode.MeasureFunction {
 	private int measuredWidth;
 	private int measuredHeight;
