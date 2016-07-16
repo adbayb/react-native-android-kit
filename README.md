@@ -22,7 +22,6 @@ For example, some components from Android Design Support Library are now availab
 		* [Introduction](#introduction-2)
 		* [Props](#props-2)
 		* [Example](#example-2)
-- [Modules](#modules)
 - [Misc](#misc)
 	* [Color](#color)
 	* [Drawable](#drawable)
@@ -57,7 +56,7 @@ To use this kit inside your react native project, you must follow these steps:
 
 	import com.facebook.react.ReactPackage;
 	import com.facebook.react.shell.MainReactPackage;
-	import fr.ayoubdev.rnak.RNAKPackage;	//<------------------------------------------ Add this import statement
+	import fr.ayoubdev.rnak.RNAKPackage;	//<------------------------- Add this import statement
 
 	...
 
@@ -77,18 +76,18 @@ To use this kit inside your react native project, you must follow these steps:
 	...
 	```
 
-<br/><br/><br/>
+<br/><br/>
 ## Demo
 
 <br/>
-If you want an overview of RNAK, it's interesting to try the demonstration application located inside `./example` folder
-For this, just follow these steps:
+If you want an overview of RNAK, it's interesting to try the demonstration code located inside `./example` folder.
+<br/>To build and test this demo, just follow these steps:
 
 - [x] Connect your device or launch your Android emulator
 - [x] Clone this repository
-- [x] Go to example folder: `cd ./example`
+- [x] Go to the example folder: `cd ./example`
 - [x] Install npm dependencies, buil and deploy the demonstration application by running: `npm install`
-- [x] Enjoy RNAK on your device/emulator !
+- [x] Enjoy RNAK demo on your device/emulator !
 
 <br/><br/><br/>
 ## Components
@@ -289,21 +288,17 @@ class FloatingButtonExample extends React.Component {
 *For corresponding code, see [Code from demonstration application](example/src/components/floatingButton.js)*
 
 <br/><br/><br/>
-## Modules
-
-<br/>
-Nothing for now ( maybe Snackbar module soon, stay tuned :) )
-
-<br/><br/><br/>
 ## Misc
 
 <br/>
+
 ### Color
 
 Color value property is set via a string input. <br/>
-Supported formats are: '#RRGGBB' , '#AARRGGBB' or one of the following names: 'red', 'blue', 'green', 'black', 'white', 'gray', 'cyan', 'magenta', 'yellow', 'lightgray', 'darkgray', 'grey', 'lightgrey', 'darkgrey', 'aqua', 'fuchsia', 'lime', 'maroon', 'navy', 'olive', 'purple', 'silver', 'teal'.
+Supported formats are: `'#RRGGBB' , '#AARRGGBB'` or one of the following names: `'red', 'blue', 'green', 'black', 'white', 'gray', 'cyan', 'magenta', 'yellow', 'lightgray', 'darkgray', 'grey', 'lightgrey', 'darkgrey', 'aqua', 'fuchsia', 'lime', 'maroon', 'navy', 'olive', 'purple', 'silver', 'teal'`.
 
 <br/>
+
 ### Drawable
 
 For now, only static images resources are supported. They must be located inside one of drawable folders (usually located at `android/app/src/main/res/drawable` or `android/app/src/main/res/drawable-XXXXXX` if you want to manage icon size according to display format). <br/>
