@@ -19,14 +19,10 @@ android {
 
 repositories {
     jcenter()
-    //Définition de la source du repo maven: ici depuis react-native/android
-    //de node_modules (comme le maven repository en ligne n'est plus à jour depuis février):
     maven { url "$projectDir/../../react-native/android" }
 }
 
 dependencies {
-    //Check depuis repo en ligne jcenter, si librarie non trouvé check depuis repo maven local (react-native/android)
-    //com.facebook.react:react-native:0.29.1 sera pioché depuis le repo local puisque les repo en ligne ne sont plus mis à jour:
     compile 'com.facebook.react:react-native:0.29.1'
     compile 'com.android.support:appcompat-v7:23.+'
     compile 'com.android.support:design:23.+'
