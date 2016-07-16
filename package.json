@@ -1,48 +1,48 @@
 {
-  "name": "react-native-android-kit",
-  "version": "1.1.0",
-  "description": "A set of native Android UI components and modules for React Native framework",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ayoubdev/react-native-android-kit.git"
-  },
-  "keywords": [
-    "react",
-    "react-native",
-    "react-native-android-kit",
-    "android",
-    "android",
-    "support",
-    "design",
-    "support",
-    "library",
-    "Button",
-    "TabLayout",
-    "FloatingActionButton",
-    "material-design",
-    "material",
-    "design",
-    "google",
-    "ayoub",
-    "adib"
-  ],
-  "author": "Ayoub ADIB <ayoub.development@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ayoubdev/react-native-android-kit/issues"
-  },
-  "homepage": "https://github.com/ayoubdev/react-native-android-kit#readme",
-  "main": "libraries/main.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "dependencies": {
-    "react": ">=15.2.0",
-    "react-native": ">=0.25.1"
-  },
-  "devDependencies": {
-    "babel-eslint": "^6.1.2",
-    "eslint": "^3.0.1",
-    "eslint-plugin-react": "^5.2.2"
-  }
+	"name": "react-native-android-kit",
+	"version": "1.1.0",
+	"description": "A set of native Android UI components and modules for React Native framework",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ayoubdev/react-native-android-kit.git"
+	},
+	"keywords": [
+		"react",
+		"react-native",
+		"react-native-android-kit",
+		"android",
+		"android",
+		"support",
+		"design",
+		"support",
+		"library",
+		"Button",
+		"TabLayout",
+		"FloatingActionButton",
+		"material-design",
+		"material",
+		"design",
+		"google",
+		"ayoub",
+		"adib"
+	],
+	"author": "Ayoub ADIB <ayoub.development@gmail.com>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/ayoubdev/react-native-android-kit/issues"
+	},
+	"homepage": "https://github.com/ayoubdev/react-native-android-kit#readme",
+	"main": "libraries/main.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"dependencies": {
+		"react": ">=15.2.0",
+		"react-native": ">=0.25.1"
+	},
+	"devDependencies": {
+		"babel-eslint": "^6.1.2",
+		"eslint": "^3.1.0",
+		"eslint-plugin-react": "^5.2.2"
+	}
 }

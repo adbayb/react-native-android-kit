@@ -38,3 +38,10 @@ node_modules
 # IDEA
 .idea
 *.iml
+
+# Ignore everything inside example folder:
+#example/*
+
+# Except these directories/files:
+#!example/src
+#!example/package.json

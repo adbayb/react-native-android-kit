@@ -1,0 +1,40 @@
+{
+  "name": "RNAKexamples",
+  "version": "1.1.0",
+  "private": true,
+  "description": "A full example on how to use React Native Android Kit",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ayoubdev/react-native-android-kit.git"
+  },
+  "keywords": [
+    "react-native",
+    "react-native-android-kit",
+    "android",
+    "kit",
+    "native"
+  ],
+  "author": "Ayoub ADIB <ayoub.development@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ayoubdev/react-native-android-kit/issues"
+  },
+  "homepage": "https://github.com/ayoubdev/react-native-android-kit#readme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "npm run deploy",
+    "init": "node node_modules/react-native/local-cli/cli.js android",
+    "deploy": "node node_modules/react-native/local-cli/cli.js run-android",
+    "start": "node node_modules/react-native/local-cli/cli.js start"
+  },
+  "dependencies": {
+    "react": "15.2.1",
+    "react-native": "^0.29.1",
+    "react-native-android-kit": "^1.1.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^6.1.2",
+    "eslint": "^3.1.0",
+    "eslint-plugin-react": "^5.2.2"
+  }
+}

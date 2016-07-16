@@ -1,4 +1,4 @@
-# React Native Android Kit <br/> [![npm version](https://img.shields.io/badge/npm-v1.0.1-green.svg)](https://www.npmjs.com/package/react-native-android-kit)
+# React Native Android Kit <br/> [![npm version](https://img.shields.io/badge/npm-v1.1.0-green.svg)](https://www.npmjs.com/package/react-native-android-kit)	[![react-native version](https://img.shields.io/badge/react--native-min%20v0.25.1-blue.svg)](https://github.com/facebook/react-native) 
 
 A set of native Android UI components and modules for React Native framework. 
 The purpose of this kit is to offer to React Native developers some new Android native components that are currently not implemented by React Native core team. 
@@ -8,6 +8,7 @@ For example, some components from Android Design Support Library are now availab
 ## Table of Contents
 
 - [Getting Started](#getting-started)
+- [Demo](#demo)
 - [Components](#components)
 	* [TabLayoutAndroid](#tablayoutandroid)
 		* [Introduction](#introduction)
@@ -25,9 +26,10 @@ For example, some components from Android Design Support Library are now availab
 - [Misc](#misc)
 	* [Color](#color)
 	* [Drawable](#drawable)
-	* [License](#license)
+- [License](#license)
 
 <br/>
+
 ## Getting Started
 
 <br/>
@@ -49,32 +51,44 @@ To use this kit inside your react native project, you must follow these steps:
 	}
 	```
 
-- [x] Finally, edit `MainActivity` (located at `android/app/src/main/java/<main-package-path>/MainActivity.java` or equivalent main Activity):
+- [x] Finally, edit `MainApplication` class (generally located at `android/app/src/main/java/<main-package-path>/MainApplication.java`):
 	```java
 	...
-	import com.facebook.react.shell.MainReactPackage;
-	import com.facebook.soloader.SoLoader;
-	import fr.ayoubdev.rnak.RNAKPackage;  //<-------------------- Add this import statement
 
-	public class MainActivity extends Activity implements DefaultHardwareBackBtnHandler {
+	import com.facebook.react.ReactPackage;
+	import com.facebook.react.shell.MainReactPackage;
+	import fr.ayoubdev.rnak.RNAKPackage;	//<------------------------------------------ Add this import statement
+
+	...
+
+	public class MainApplication extends Application implements ReactApplication {
+		
 		...
 
-		@Override
-		protected void onCreate(Bundle savedInstanceState) {
-			super.onCreate(savedInstanceState);
-			mReactRootView = new ReactRootView(this);
-
-			mReactInstanceManager = ReactInstanceManager.builder()
-					.setApplication(getApplication())
-					.setBundleAssetName("index.android.bundle")
-					.setJSMainModuleName("index.android")
-					.addPackage(new MainReactPackage())
-					.addPackage(new RNAKPackage())	//<-------------------- Add this statement
-					.setUseDeveloperSupport(BuildConfig.DEBUG)
-					.setInitialLifecycleState(LifecycleState.RESUMED)
-					.build();
-
+			@Override
+			protected List<ReactPackage> getPackages() {
+				return Arrays.<ReactPackage>asList(
+					new MainReactPackage(),
+					new RNAKPackage()	//<-------------------------- Add this statement
+				);
+			}
+		};
+	
+	...
 	```
+
+<br/><br/><br/>
+## Demo
+
+<br/>
+If you want an overview of RNAK, it's interesting to try the demonstration application located inside `./example` folder
+For this, just follow these steps:
+
+- [x] Connect your device or launch your Android emulator
+- [x] Clone this repository
+- [x] Go to example folder: `cd ./example`
+- [x] Install npm dependencies, buil and deploy the demonstration application by running: `npm install`
+- [x] Enjoy RNAK on your device/emulator !
 
 <br/><br/><br/>
 ## Components
@@ -163,7 +177,7 @@ class TabLayoutExample extends React.Component {
 <p align="center">
 	<img src="https://raw.githubusercontent.com/ayoubdev/assets/master/react-native-android-kit/tablayout.Gif" title="TabLayout Demonstration" alt="TabLayoutAndroid & TabAndroid"/>
 </p>
-*For corresponding code, see [react-native-android-kit Examples](https://github.com/ayoubdev/react-native-android-kit-examples "RNAK Examples")*
+*For corresponding code, see [Code from demonstration application](example/src/index.js)*
 
 <br/><br/>
 ### ButtonAndroid
@@ -217,7 +231,7 @@ class ButtonExample extends React.Component {
 	<img src="https://raw.githubusercontent.com/ayoubdev/assets/master/react-native-android-kit/button.Gif" title="Button Demonstration" alt="ButtonAndroid"/>
 </p>
 
-*For corresponding code, see [react-native-android-kit Examples](https://github.com/ayoubdev/react-native-android-kit-examples "RNAK Examples")*
+*For corresponding code, see [Code from demonstration application](example/src/components/button.js)*
 
 <br/><br/>
 ### FloatingButtonAndroid
@@ -272,7 +286,7 @@ class FloatingButtonExample extends React.Component {
 	<img src="https://raw.githubusercontent.com/ayoubdev/assets/master/react-native-android-kit/fab.Gif" title="FloatingActionButton Demonstration" alt="FloatingButtonAndroid"/>
 </p>
 
-*For corresponding code, see [react-native-android-kit Examples](https://github.com/ayoubdev/react-native-android-kit-examples "RNAK Examples")*
+*For corresponding code, see [Code from demonstration application](example/src/components/floatingButton.js)*
 
 <br/><br/><br/>
 ## Modules
@@ -295,6 +309,8 @@ Supported formats are: '#RRGGBB' , '#AARRGGBB' or one of the following names: 'r
 For now, only static images resources are supported. They must be located inside one of drawable folders (usually located at `android/app/src/main/res/drawable` or `android/app/src/main/res/drawable-XXXXXX` if you want to manage icon size according to display format). <br/>
 To target a resource, you only need to specify string basename (i.e. without extension) and it must respect underscored name. For example, if you have an image called toto-tata.png, you must specify 'toto_tata' as a property value.
 
-<br/>
-### License
+
+<br/><br/><br/>
+## License
+
 [MIT](./LICENSE "License MIT")

@@ -1,0 +1,5 @@
+rootProject.name = 'RNAKexamples'
+
+include ':app'
+include ':ReactNativeAndroidKit'
+project(':ReactNativeAndroidKit').projectDir = file('../node_modules/react-native-android-kit/android')
