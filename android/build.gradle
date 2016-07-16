@@ -18,12 +18,17 @@ android {
 }
 
 repositories {
-    jcenter()
+    //Définition de la source du repo maven: ici depuis react-native/android
+    //de node_modules (comme le maven repository en ligne n'est plus à jour depuis février):
+    //Par défault, Gradle va rechercher les dépendences dans les repos listés ci-dessous dans l'ordre dans lequel les repos sont spécifiés 
     maven { url "$projectDir/../../react-native/android" }
+    jcenter()
 }
 
 dependencies {
-    compile 'com.facebook.react:react-native:0.29.1'
+    //Check depuis repo maven local (react-native/android). Si librarie non trouvé, check depuis repo en ligne jcenter.
+    //com.facebook.react:react-native:0.29.1 sera pioché depuis le repo local puisque les repo en ligne ne sont plus mis à jour:
+    compile 'com.facebook.react:react-native:+'
     compile 'com.android.support:appcompat-v7:23.+'
     compile 'com.android.support:design:23.+'
 }

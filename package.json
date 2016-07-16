@@ -36,15 +36,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {
-    "react": ">=0.14.5",
-    "react-native": ">=0.25.1"
+  "peerDependencies": {
+    "react-native": ">=0.29.0"
   },
   "devDependencies": {
     "babel-eslint": "^6.1.2",
     "eslint": "^3.1.0",
-    "eslint-plugin-react": "^5.2.2",
-    "react": "^15.2.1",
-    "react-native": "^0.29.1"
+    "eslint-plugin-react": "^5.2.2"
   }
 }

@@ -30,7 +30,7 @@
   "dependencies": {
     "react": "15.2.1",
     "react-native": "^0.29.1",
-    "react-native-android-kit": "^1.1.0"
+    "react-native-android-kit": "../"
   },
   "devDependencies": {
     "babel-eslint": "^6.1.2",
