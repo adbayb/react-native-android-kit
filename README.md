@@ -47,16 +47,16 @@ For example, some components from Android Design Support Library are now availab
 	npm install react-native-android-kit --save
 	```
 
-- [x] Link this native dependency to your project:
+- [x] Link native dependencies to your project:
 
 	```
-	react-native link
+	node node_modules/react-native/local-cli/cli.js link react-native-android-kit
 	```
 
-	Or, via [`rnpm`](https://github.com/rnpm/rnpm) utility:
+	Or, via react-native-cli if installed globally:
 
 	```
-	rnpm link
+	react-native link react-native-android-kit
 	```
 
 
