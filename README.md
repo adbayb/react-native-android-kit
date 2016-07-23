@@ -1,7 +1,5 @@
 # React Native Android Kit <br/> [![npm version](https://img.shields.io/badge/npm-v1.1.0-green.svg)](https://www.npmjs.com/package/react-native-android-kit)	[![react-native version](https://img.shields.io/badge/react--native-min%20v0.29.0-blue.svg)](https://github.com/facebook/react-native) 
 
-<br/>
-
 A set of native Android UI components and modules for React Native framework. 
 The purpose of this kit is to offer to React Native developers some new Android native components that are currently not implemented by React Native core team. 
 For example, some components from Android Design Support Library are now available through this kit.
@@ -13,7 +11,6 @@ For example, some components from Android Design Support Library are now availab
 - [Installation](#installation)
 	* [Automatic](#automatic)
 	* [Manual](#manual)
-- [Demo](#demo)
 - [Components](#components)
 	* [TabLayoutAndroid](#tablayoutandroid)
 		* [Introduction](#introduction)
@@ -30,9 +27,10 @@ For example, some components from Android Design Support Library are now availab
 - [Misc](#misc)
 	* [Color](#color)
 	* [Drawable](#drawable)
+	* [Demo](#demo)
 - [License](#license)
 
-<br/><br/><br/><br/>
+<br/><br/><br/>
 
 ## Installation
 
@@ -115,20 +113,6 @@ To use this kit inside your react native project, you must follow these steps:
 	
 	...
 	```
-
-<br/><br/><br/><br/>
-
-## Demo
-
-<br/>
-If you want an overview of RNAK, it's interesting to try the demonstration code located inside `./example` folder.
-<br/>To build and test this demo, just follow these steps:
-
-- [x] Connect your device or launch your Android emulator
-- [x] Clone this repository
-- [x] Go to the example folder: `cd ./example`
-- [x] Install npm dependencies, buil and deploy the demonstration application by running: `npm install`
-- [x] Enjoy RNAK demo on your device/emulator !
 
 <br/><br/><br/><br/>
 
@@ -350,6 +334,19 @@ Supported formats are: `'#RRGGBB' , '#AARRGGBB'` or one of the following names: 
 For now, only static images resources are supported. They must be located inside one of drawable folders (usually located at `android/app/src/main/res/drawable` or `android/app/src/main/res/drawable-XXXXXX` if you want to manage icon size according to display format). <br/>
 To target a resource, you only need to specify string basename (i.e. without extension) and it must respect underscored name. For example, if you have an image called toto-tata.png, you must specify 'toto_tata' as a property value.
 
+<br/>
+
+### Demo
+
+If you want an overview of RNAK, it's interesting to try the demonstration code located inside `./example` folder.
+
+To build and test this demo, just follow these steps:
+
+- [x] Connect your device or launch your Android emulator
+- [x] Clone this repository
+- [x] Go to the example folder: `cd ./example`
+- [x] Install npm dependencies, buil and deploy the demonstration application by running: `npm install`
+- [x] Enjoy RNAK demo on your device/emulator !
 
 <br/><br/><br/><br/>
 
