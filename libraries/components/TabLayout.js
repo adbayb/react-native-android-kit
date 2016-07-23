@@ -50,7 +50,13 @@ class TabLayout extends Component {
 				else
 					this.tabsSettings.push(this.getChildProps(children));
 
-				return children;
+				return children.map((c, index) => {
+					return(
+						<View key={index} style={{flex:1}}>
+						{c.props.children}
+						</View>
+					);
+				});
 			}
 
 			console.warn('TabLayoutAndroid View must only have TabAndroid as direct children');
