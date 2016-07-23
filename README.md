@@ -1,13 +1,18 @@
 # React Native Android Kit <br/> [![npm version](https://img.shields.io/badge/npm-v1.1.0-green.svg)](https://www.npmjs.com/package/react-native-android-kit)	[![react-native version](https://img.shields.io/badge/react--native-min%20v0.29.0-blue.svg)](https://github.com/facebook/react-native) 
 
+<br/>
+
 A set of native Android UI components and modules for React Native framework. 
 The purpose of this kit is to offer to React Native developers some new Android native components that are currently not implemented by React Native core team. 
 For example, some components from Android Design Support Library are now available through this kit.
 
 <br/>
+
 ## Table of Contents
 
-- [Getting Started](#getting-started)
+- [Installation](#installation)
+	* [Automatic](#automatic)
+	* [Manual](#manual)
 - [Demo](#demo)
 - [Components](#components)
 	* [TabLayoutAndroid](#tablayoutandroid)
@@ -27,22 +32,56 @@ For example, some components from Android Design Support Library are now availab
 	* [Drawable](#drawable)
 - [License](#license)
 
+<br/><br/><br/><br/>
+
+## Installation
+
 <br/>
 
-## Getting Started
+### Automatic
+
+- [x] Go to your root project folder
+- [x] Install react-native-android-kit from npm repository: 
+
+	```
+	npm install react-native-android-kit --save
+	```
+
+- [x] Link this native dependency to your project:
+
+	```
+	react-native link
+	```
+
+	Or, via [`rnpm`](https://github.com/rnpm/rnpm) utility:
+
+	```
+	rnpm link
+	```
+
 
 <br/>
+
+### Manual
+
 To use this kit inside your react native project, you must follow these steps:
 
 - [x] Go to your root project folder
-- [x] Install react-native-android-kit using npm install command: `npm install react-native-android-kit --save`
+- [x] Install react-native-android-kit from npm repository: 
+
+	```
+	npm install react-native-android-kit --save
+	```
+
 - [x] Add the following lines to your `android/settings.gradle`:
+
 	```gradle
 	include ':ReactNativeAndroidKit'
 	project(':ReactNativeAndroidKit').projectDir = file('../node_modules/react-native-android-kit/android')
 	```
-	
+
 - [x] Inside `android/app/build.gradle` file, add compilation instruction for ReactNativeAndroidKit like that:
+
 	```gradle
 	dependencies {
 		...
@@ -51,6 +90,7 @@ To use this kit inside your react native project, you must follow these steps:
 	```
 
 - [x] Finally, edit `MainApplication` class (generally located at `android/app/src/main/java/<main-package-path>/MainApplication.java`):
+
 	```java
 	...
 
@@ -76,7 +116,8 @@ To use this kit inside your react native project, you must follow these steps:
 	...
 	```
 
-<br/><br/>
+<br/><br/><br/><br/>
+
 ## Demo
 
 <br/>
@@ -89,10 +130,12 @@ If you want an overview of RNAK, it's interesting to try the demonstration code 
 - [x] Install npm dependencies, buil and deploy the demonstration application by running: `npm install`
 - [x] Enjoy RNAK demo on your device/emulator !
 
-<br/><br/><br/>
+<br/><br/><br/><br/>
+
 ## Components
 
 <br/>
+
 ### TabLayoutAndroid
 
 #### Introduction
@@ -178,7 +221,8 @@ class TabLayoutExample extends React.Component {
 </p>
 *For corresponding code, see [Code from demonstration application](example/src/index.js)*
 
-<br/><br/>
+<br/><br/><br/>
+
 ### ButtonAndroid
 
 #### Introduction
@@ -232,7 +276,8 @@ class ButtonExample extends React.Component {
 
 *For corresponding code, see [Code from demonstration application](example/src/components/button.js)*
 
-<br/><br/>
+<br/><br/><br/>
+
 ### FloatingButtonAndroid
 
 #### Introduction
@@ -287,7 +332,8 @@ class FloatingButtonExample extends React.Component {
 
 *For corresponding code, see [Code from demonstration application](example/src/components/floatingButton.js)*
 
-<br/><br/><br/>
+<br/><br/><br/><br/>
+
 ## Misc
 
 <br/>
@@ -305,7 +351,8 @@ For now, only static images resources are supported. They must be located inside
 To target a resource, you only need to specify string basename (i.e. without extension) and it must respect underscored name. For example, if you have an image called toto-tata.png, you must specify 'toto_tata' as a property value.
 
 
-<br/><br/><br/>
+<br/><br/><br/><br/>
+
 ## License
 
 [MIT](./LICENSE "License MIT")
