@@ -345,7 +345,7 @@ To build and test this demo, just follow these steps:
 - [x] Connect your device or launch your Android emulator
 - [x] Clone this repository
 - [x] Go to the example folder: `cd ./example`
-- [x] Install npm dependencies, buil and deploy the demonstration application by running: `npm install`
+- [x] Install npm dependencies, build and deploy the demonstration application by running: `npm install`
 - [x] Enjoy RNAK demo on your device/emulator !
 
 <br/><br/><br/><br/>
