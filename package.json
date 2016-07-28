@@ -32,7 +32,7 @@
     "url": "https://github.com/ayoubdev/react-native-android-kit/issues"
   },
   "homepage": "https://github.com/ayoubdev/react-native-android-kit#readme",
-  "main": "libraries/main.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
