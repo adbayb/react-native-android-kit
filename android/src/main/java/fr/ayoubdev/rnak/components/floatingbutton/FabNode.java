@@ -17,11 +17,10 @@ public class FabNode extends LayoutShadowNode implements CSSNode.MeasureFunction
 	}
 
 	@Override
-	public void measure(CSSNode node, float width, CSSMeasureMode widthMode, float height, CSSMeasureMode heightMode, MeasureOutput measureOutput) {
+	public void measure(CSSNodeAPI node, float width, CSSMeasureMode widthMode, float height, CSSMeasureMode heightMode, MeasureOutput measureOutput) {
 		if(!mMeasured) {
 			FabView nodeView = new FabView(getThemedContext());
-			final int spec = View.MeasureSpec.makeMeasureSpec(
-					ViewGroup.LayoutParams.WRAP_CONTENT,
+			final int spec = View.MeasureSpec.makeMeasureSpec(View.MeasureSpec.UNSPECIFIED,
 					View.MeasureSpec.UNSPECIFIED);
 			nodeView.measure(spec, spec);
 			mWidth = nodeView.getMeasuredWidth();
