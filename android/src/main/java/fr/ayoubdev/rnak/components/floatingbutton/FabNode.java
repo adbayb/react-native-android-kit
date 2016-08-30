@@ -1,9 +1,9 @@
 package fr.ayoubdev.rnak.components.floatingbutton;
 
 import android.view.View;
-import android.view.ViewGroup;
 import com.facebook.csslayout.CSSMeasureMode;
 import com.facebook.csslayout.CSSNode;
+import com.facebook.csslayout.CSSNodeAPI;
 import com.facebook.csslayout.MeasureOutput;
 import com.facebook.react.uimanager.LayoutShadowNode;
 
@@ -17,11 +17,10 @@ public class FabNode extends LayoutShadowNode implements CSSNode.MeasureFunction
 	}
 
 	@Override
-	public void measure(CSSNode node, float width, CSSMeasureMode widthMode, float height, CSSMeasureMode heightMode, MeasureOutput measureOutput) {
+	public void measure(CSSNodeAPI node, float width, CSSMeasureMode widthMode, float height, CSSMeasureMode heightMode, MeasureOutput measureOutput) {
 		if(!mMeasured) {
 			FabView nodeView = new FabView(getThemedContext());
-			final int spec = View.MeasureSpec.makeMeasureSpec(
-					ViewGroup.LayoutParams.WRAP_CONTENT,
+			final int spec = View.MeasureSpec.makeMeasureSpec(View.MeasureSpec.UNSPECIFIED,
 					View.MeasureSpec.UNSPECIFIED);
 			nodeView.measure(spec, spec);
 			mWidth = nodeView.getMeasuredWidth();
