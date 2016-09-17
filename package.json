@@ -37,7 +37,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "peerDependencies": {
-    "react-native": ">=0.29.0"
+    "react-native": ">=0.32.0"
   },
   "devDependencies": {
     "babel-eslint": "^6.1.2",

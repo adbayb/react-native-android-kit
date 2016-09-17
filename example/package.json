@@ -28,13 +28,13 @@
     "start": "node node_modules/react-native/local-cli/cli.js start"
   },
   "dependencies": {
-    "react": "15.2.1",
-    "react-native": "^0.29.1",
+    "react": "^15.3.1",
+    "react-native": "^0.33.0",
     "react-native-android-kit": "../"
   },
   "devDependencies": {
     "babel-eslint": "^6.1.2",
-    "eslint": "^3.1.0",
+    "eslint": "^3.5.0",
     "eslint-plugin-react": "^5.2.2"
   }
 }
