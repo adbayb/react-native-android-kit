@@ -17,7 +17,7 @@ public class ButtonNode extends LayoutShadowNode implements CSSNodeAPI.MeasureFu
 	}
 
 	@Override
-	public void measure(CSSNodeAPI node, float width, CSSMeasureMode widthMode, float height, CSSMeasureMode heightMode, MeasureOutput measureOutput) {
+	public long measure(CSSNodeAPI node, float width, CSSMeasureMode widthMode, float height, CSSMeasureMode heightMode) {
 		if(!mMeasured) {
 			ButtonView nodeView = new ButtonView(getThemedContext());
 			final int spec = View.MeasureSpec.makeMeasureSpec(
@@ -28,7 +28,6 @@ public class ButtonNode extends LayoutShadowNode implements CSSNodeAPI.MeasureFu
 			mHeight = nodeView.getMeasuredHeight();
 			mMeasured = true;
 		}
-		measureOutput.width = mWidth;
-		measureOutput.height = mHeight;
+		return MeasureOutput.make(mWidth, mHeight);
 	}
 }
