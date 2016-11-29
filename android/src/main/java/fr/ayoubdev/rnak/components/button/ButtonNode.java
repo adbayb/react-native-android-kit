@@ -6,6 +6,7 @@ import com.facebook.csslayout.CSSNode;
 import com.facebook.csslayout.CSSNodeAPI;
 import com.facebook.csslayout.MeasureOutput;
 import com.facebook.react.uimanager.LayoutShadowNode;
+import com.facebook.csslayout.MeasureOutput;
 
 public class ButtonNode extends LayoutShadowNode implements CSSNode.MeasureFunction {
 	private int mWidth;
@@ -16,8 +17,9 @@ public class ButtonNode extends LayoutShadowNode implements CSSNode.MeasureFunct
 		setMeasureFunction(this);
 	}
 
+
 	@Override
-	public void measure(CSSNodeAPI node, float width, CSSMeasureMode widthMode, float height, CSSMeasureMode heightMode, MeasureOutput measureOutput) {
+	public long measure(CSSNodeAPI node, float width, CSSMeasureMode widthMode, float height, CSSMeasureMode heightMode) {
 		if(!mMeasured) {
 			ButtonView nodeView = new ButtonView(getThemedContext());
 			final int spec = View.MeasureSpec.makeMeasureSpec(View.MeasureSpec.UNSPECIFIED,
@@ -27,7 +29,6 @@ public class ButtonNode extends LayoutShadowNode implements CSSNode.MeasureFunct
 			mHeight = nodeView.getMeasuredHeight();
 			mMeasured = true;
 		}
-		measureOutput.width = mWidth;
-		measureOutput.height = mHeight;
+		return MeasureOutput.make(mWidth, mHeight);
 	}
 }
