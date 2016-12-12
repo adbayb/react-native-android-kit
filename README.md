@@ -1,4 +1,4 @@
-# React Native Android Kit <br/> [![npm version](https://img.shields.io/badge/npm-v1.1.1-green.svg)](https://www.npmjs.com/package/react-native-android-kit)	[![react-native version](https://img.shields.io/badge/react--native-min%20v0.29.0-blue.svg)](https://github.com/facebook/react-native) 
+# React Native Android Kit <br/> [![npm version](https://img.shields.io/badge/npm-v1.1.3-green.svg)](https://www.npmjs.com/package/react-native-android-kit)	[![react-native version](https://img.shields.io/badge/react--native-min%20v0.32.0-blue.svg)](https://github.com/facebook/react-native) 
 
 <br/>
 

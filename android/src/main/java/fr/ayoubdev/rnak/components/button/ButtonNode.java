@@ -2,13 +2,12 @@ package fr.ayoubdev.rnak.components.button;
 
 import android.view.View;
 import com.facebook.csslayout.CSSMeasureMode;
-import com.facebook.csslayout.CSSNode;
 import com.facebook.csslayout.CSSNodeAPI;
 import com.facebook.csslayout.MeasureOutput;
 import com.facebook.react.uimanager.LayoutShadowNode;
 import com.facebook.csslayout.MeasureOutput;
 
-public class ButtonNode extends LayoutShadowNode implements CSSNode.MeasureFunction {
+public class ButtonNode extends LayoutShadowNode implements CSSNodeAPI.MeasureFunction {
 	private int mWidth;
 	private int mHeight;
 	private boolean mMeasured;

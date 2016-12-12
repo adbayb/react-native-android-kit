@@ -3,12 +3,11 @@ import com.facebook.csslayout.MeasureOutput;
 
 import android.view.View;
 import com.facebook.csslayout.CSSMeasureMode;
-import com.facebook.csslayout.CSSNode;
 import com.facebook.csslayout.CSSNodeAPI;
 import com.facebook.csslayout.MeasureOutput;
 import com.facebook.react.uimanager.LayoutShadowNode;
 
-public class FabNode extends LayoutShadowNode implements CSSNode.MeasureFunction {
+public class FabNode extends LayoutShadowNode implements CSSNodeAPI.MeasureFunction {
 	private int mWidth;
 	private int mHeight;
 	private boolean mMeasured;
