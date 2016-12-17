@@ -1,4 +1,4 @@
-package fr.ayoubdev.rnak.components.button;
+package fr.aybadb.rnak.components.button;
 
 import android.content.Context;
 import android.graphics.Color;

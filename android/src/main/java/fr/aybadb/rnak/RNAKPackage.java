@@ -1,13 +1,13 @@
-package fr.ayoubdev.rnak;
+package fr.aybadb.rnak;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.JavaScriptModule;
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
-import fr.ayoubdev.rnak.components.button.ButtonManager;
-import fr.ayoubdev.rnak.components.floatingbutton.FabManager;
-import fr.ayoubdev.rnak.components.tab.TabLayoutManager;
+import fr.aybadb.rnak.components.button.ButtonManager;
+import fr.aybadb.rnak.components.floatingbutton.FabManager;
+import fr.aybadb.rnak.components.tab.TabLayoutManager;
 
 import java.util.Arrays;
 import java.util.Collections;

@@ -1,9 +1,8 @@
-package fr.ayoubdev.rnak.components.button;
+package fr.aybadb.rnak.components.button;
 
-import com.facebook.react.uimanager.LayoutShadowNode;
-import com.facebook.react.uimanager.annotations.ReactProp;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
+import com.facebook.react.uimanager.annotations.ReactProp;
 
 public class ButtonManager extends SimpleViewManager<ButtonView> {
 	private final static String REACT_CLASS = "ButtonAndroid";
@@ -16,16 +15,6 @@ public class ButtonManager extends SimpleViewManager<ButtonView> {
 	@Override
 	protected ButtonView createViewInstance(ThemedReactContext themedReactContext) {
 		return new ButtonView(themedReactContext);
-	}
-
-	@Override
-	public LayoutShadowNode createShadowNodeInstance() {
-		return new ButtonNode();
-	}
-
-	@Override
-	public Class getShadowNodeClass() {
-		return ButtonNode.class;
 	}
 
 	@ReactProp(name = "backgroundColor")

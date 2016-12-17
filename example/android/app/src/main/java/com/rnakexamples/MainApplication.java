@@ -8,7 +8,7 @@ import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
-import fr.ayoubdev.rnak.RNAKPackage;
+import fr.aybadb.rnak.RNAKPackage;
 
 import java.util.Arrays;
 import java.util.List;

@@ -1,11 +1,12 @@
-package fr.ayoubdev.rnak.components.tab;
+package fr.aybadb.rnak.components.tab;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.support.design.widget.TabLayout;
+import android.support.v4.content.ContextCompat;
 import com.facebook.react.bridge.ReadableMap;
-import fr.ayoubdev.rnak.utils.RNAKDrawable;
+import fr.aybadb.rnak.utils.Drawable;
 
 public class TabLayoutView extends TabLayout {
 	public TabLayoutView(Context context) {
@@ -13,7 +14,7 @@ public class TabLayoutView extends TabLayout {
 	}
 
 	public void setBackgroundDrawable(String filename) {
-		super.setBackground(this.getResources().getDrawable(RNAKDrawable.getDrawableID(this, filename)));
+		super.setBackground(ContextCompat.getDrawable(this.getContext(), Drawable.getID(this, filename)));
 
 		return;
 	}
@@ -31,10 +32,12 @@ public class TabLayoutView extends TabLayout {
 	}
 
 	public void setTabMode(boolean isScrollable) {
-		if(isScrollable)
+		if (isScrollable) {
 			super.setTabMode(TabLayoutView.MODE_SCROLLABLE);
-		else
+		} else {
 			super.setTabMode(TabLayoutView.MODE_FIXED);
+		}
+
 
 		return;
 	}
@@ -68,10 +71,12 @@ public class TabLayoutView extends TabLayout {
 	}
 
 	public void setTabGravity(boolean isCenter) {
-		if(isCenter)
+		if (isCenter) {
 			super.setTabGravity(TabLayoutView.GRAVITY_CENTER);
-		else
+		} else {
 			super.setTabGravity(TabLayoutView.GRAVITY_FILL);
+		}
+
 	}
 
 	/**
@@ -81,9 +86,10 @@ public class TabLayoutView extends TabLayout {
 	 * @return
 	 */
 	public boolean attachCustomTab(ReadableMap configMap) {
-		if(configMap != null) {
+		if (configMap != null) {
 			Tab tab = this.newTab();
-			tab = new TabCustomView(this.getContext()).setContent(tab, configMap);
+			tab = new CustomView(this.getContext())
+					.setContent(tab, configMap);
 			this.addTab(tab);
 
 			return true;
@@ -98,12 +104,14 @@ public class TabLayoutView extends TabLayout {
 	 * @return
 	 */
 	public boolean attachTab(ReadableMap configMap) {
-		if(configMap != null) {
+		if (configMap != null) {
 			Tab tab = this.newTab();
-			if(configMap.hasKey("text"))
+			if (configMap.hasKey("text")) {
 				tab.setText(configMap.getString("text"));
-			if(configMap.hasKey("icon"))
-				tab.setIcon(this.getResources().getDrawable(RNAKDrawable.getDrawableID(this, configMap.getString("icon"))));
+			}
+			if (configMap.hasKey("icon")) {
+				tab.setIcon(ContextCompat.getDrawable(this.getContext(), Drawable.getID(this, configMap.getString("icon"))));
+			}
 
 			this.addTab(tab);
 

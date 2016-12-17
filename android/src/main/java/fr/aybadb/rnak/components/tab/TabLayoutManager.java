@@ -1,4 +1,4 @@
-package fr.ayoubdev.rnak.components.tab;
+package fr.aybadb.rnak.components.tab;
 
 import android.support.v4.view.ViewPager;
 import android.view.View;
@@ -33,23 +33,33 @@ public class TabLayoutManager extends ViewGroupManager<TabLayoutView> {
 		Assertions.assertNotNull(root);
 		Assertions.assertNotNull(args);
 
-		switch(commandId) {
+		switch (commandId) {
 			case COMMAND_SETUPWITHVIEWPAGER:
 				ViewPager viewPager = (ViewPager) root.getRootView().findViewById(args.getInt(0));
-				if(viewPager != null) {
+				if (viewPager != null) {
 					root.setupWithViewPager(viewPager);
 					ReadableArray tabsSettingsArray = args.getArray(1);
-					if(!this.addTabs(root, tabsSettingsArray)) {
-						throw new IllegalViewOperationException("One or more tabs was/were not created: an error occurred (ReadableArray null and/or TabLayoutView null) in " + getClass().getSimpleName());
+					if (!this.addTabs(root, tabsSettingsArray)) {
+						throw new IllegalViewOperationException(
+								"One or more tabs was/were not created: an error occurred (ReadableArray null and/or TabLayoutView null) in " +
+										getClass().getSimpleName()
+						);
 					}
-				} else
-					throw new IllegalViewOperationException("Nonexistent ViewPager instance. Null value received by " + getClass().getSimpleName());
+				} else {
+					throw new IllegalViewOperationException(
+							"Nonexistent ViewPager instance. Null value received by " +
+									getClass().getSimpleName()
+					);
+				}
 				break;
 			default:
-				throw new IllegalArgumentException(String.format(
-						"Unsupported command %d received by %s.",
-						commandId,
-						getClass().getSimpleName()));
+				throw new IllegalArgumentException(
+						String.format(
+								"Unsupported command %d received by %s.",
+								commandId,
+								getClass().getSimpleName()
+						)
+				);
 		}
 	}
 
@@ -57,13 +67,18 @@ public class TabLayoutManager extends ViewGroupManager<TabLayoutView> {
 	@Override
 	public Map<String, Integer> getCommandsMap() {
 		return MapBuilder.of(
-				"setupWithViewPager", COMMAND_SETUPWITHVIEWPAGER
+				"setupWithViewPager",
+				COMMAND_SETUPWITHVIEWPAGER
 		);
 	}
 
 	@Override
 	public void addView(TabLayoutView parent, View child, int index) {
-		parent.addTab(parent.newTab().setCustomView(child));
+		parent.addTab(
+				parent.newTab().setCustomView(
+						child
+				)
+		);
 	}
 
 	@Override
@@ -117,23 +132,25 @@ public class TabLayoutManager extends ViewGroupManager<TabLayoutView> {
 	}
 
 	private boolean addTabs(TabLayoutView view, ReadableArray tabsSettings) {
-		if(view != null) {
-			if(tabsSettings != null) {
+		if (view != null) {
+			if (tabsSettings != null) {
 				ReadableMap tabSettingsMap = null;
 
 				view.removeAllTabs();
-				for(int i = 0; i < tabsSettings.size(); i++) {
+				for (int i = 0; i < tabsSettings.size(); i++) {
 					tabSettingsMap = tabsSettings.getMap(i);
-					if(tabSettingsMap != null) {
-						if(tabSettingsMap.hasKey("customView")) {
+					if (tabSettingsMap != null) {
+						if (tabSettingsMap.hasKey("customView")) {
 							boolean customView = tabSettingsMap.getBoolean("customView");
-							if(customView)
+							if (customView) {
 								view.attachCustomTab(tabSettingsMap);
-							else
+							} else {
 								view.attachTab(tabSettingsMap);
+							}
 						}
-					} else
+					} else {
 						return false;
+					}
 				}
 
 				return true;

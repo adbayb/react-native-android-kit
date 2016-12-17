@@ -1,10 +1,11 @@
-package fr.ayoubdev.rnak.components.floatingbutton;
+package fr.aybadb.rnak.components.floatingbutton;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.support.design.widget.FloatingActionButton;
-import fr.ayoubdev.rnak.utils.RNAKDrawable;
+import android.support.v4.content.ContextCompat;
+import fr.aybadb.rnak.utils.Drawable;
 
 public class FabView extends FloatingActionButton {
 	public FabView(Context context) {
@@ -12,7 +13,11 @@ public class FabView extends FloatingActionButton {
 	}
 
 	public void setColor(String color) {
-		this.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor(color)));
+		this.setBackgroundTintList(
+				ColorStateList.valueOf(
+						Color.parseColor(color)
+				)
+		);
 
 		return;
 	}
@@ -24,26 +29,23 @@ public class FabView extends FloatingActionButton {
 	}
 
 	public void setImageDrawable(String filename) {
-		int id = RNAKDrawable.getDrawableID(this, filename);
-		super.setImageDrawable(this.getResources().getDrawable(id));
+		super.setImageDrawable(
+				ContextCompat.getDrawable(
+						this.getContext(),
+						Drawable.getID(this, filename)
+				)
+		);
 
 		return;
 	}
 
 	public void hide(boolean isHidden) {
-		if(isHidden)
+		if (isHidden) {
 			super.hide();
-		else
+		} else {
 			this.show();
+		}
 
 		return;
-	}
-
-	private String getFilenameWithoutExtension(String filename) {
-		int extensionIndex = filename.lastIndexOf('.');
-
-		if(extensionIndex != -1)
-			return filename.substring(0, extensionIndex);
-		return filename;
 	}
 }
