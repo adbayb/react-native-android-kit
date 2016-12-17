@@ -1,3 +1,4 @@
 # Exclude example folder from npm package release:
 
 example
+.eslintrc.json
