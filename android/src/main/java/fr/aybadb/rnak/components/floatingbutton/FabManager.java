@@ -1,9 +1,8 @@
-package fr.ayoubdev.rnak.components.floatingbutton;
+package fr.aybadb.rnak.components.floatingbutton;
 
-import com.facebook.react.uimanager.LayoutShadowNode;
-import com.facebook.react.uimanager.annotations.ReactProp;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
+import com.facebook.react.uimanager.annotations.ReactProp;
 
 public class FabManager extends SimpleViewManager<FabView> {
 	private final static String REACT_CLASS = "FloatingButtonAndroid";
@@ -16,16 +15,6 @@ public class FabManager extends SimpleViewManager<FabView> {
 	@Override
 	protected FabView createViewInstance(ThemedReactContext themedReactContext) {
 		return new FabView(themedReactContext);
-	}
-
-	@Override
-	public LayoutShadowNode createShadowNodeInstance() {
-		return new FabNode();
-	}
-
-	@Override
-	public Class getShadowNodeClass() {
-		return FabNode.class;
 	}
 
 	@ReactProp(name = "icon")

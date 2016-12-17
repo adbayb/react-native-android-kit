@@ -1,4 +1,4 @@
-# React Native Android Kit <br/> [![npm version](https://img.shields.io/badge/npm-v1.1.3-green.svg)](https://www.npmjs.com/package/react-native-android-kit)	[![react-native version](https://img.shields.io/badge/react--native-min%20v0.32.0-blue.svg)](https://github.com/facebook/react-native) 
+# React Native Android Kit <br/> [![npm version](https://img.shields.io/badge/npm-v1.2.0-green.svg)](https://www.npmjs.com/package/react-native-android-kit)	[![react-native version](https://img.shields.io/badge/react--native-min%20v0.38.0-blue.svg)](https://github.com/facebook/react-native) 
 
 <br/>
 
@@ -30,6 +30,7 @@ For example, some components from Android Design Support Library are now availab
 	* [Color](#color)
 	* [Drawable](#drawable)
 	* [Demo](#demo)
+	* [Todo](#todo)
 - [License](#license)
 
 <br/><br/><br/>
@@ -94,7 +95,7 @@ To use this kit inside your react native project, you must follow these steps:
 
 	import com.facebook.react.ReactPackage;
 	import com.facebook.react.shell.MainReactPackage;
-	import fr.ayoubdev.rnak.RNAKPackage;	//<------------------------- Add this import statement
+	import fr.aybadb.rnak.RNAKPackage;	//<------------------------- Add this import statement
 
 	...
 
@@ -125,14 +126,14 @@ To use this kit inside your react native project, you must follow these steps:
 #### Introduction
 
 TabLayoutAndroid component provides a horizontal layout to display tabs.
-Population of the tabs to display is done through TabAndroid component.
+Population of the tabs to display is done through TabLayoutAndroid.Item component.
 Transition between tabs are managed by a ViewPager instance (you don't need to care about it: all is managed by TabLayoutAndroid component).<br/>
 For more details, see: [Native TabLayout documentation](http://developer.android.com/reference/android/support/design/widget/TabLayout.html "TabLayout Android Developers")
 
 #### Props:
 
 ##### TabLayoutAndroid props:
-It is important all children of TabLayoutAndroid are TabAndroid(s) component and not composite components:
+It is important all children of TabLayoutAndroid are TabLayoutAndroid.Item component(s) and not composite components:
 
 > [View props...](https://facebook.github.io/react-native/docs/view.html#props)<br/><br/>
 > [ViewPagerAndroid props...](https://facebook.github.io/react-native/docs/viewpagerandroid.html#props)<br/><br/>
@@ -146,10 +147,10 @@ It is important all children of TabLayoutAndroid are TabAndroid(s) component and
 *By default, 60 is the height value for tabs container.*
 
 
-##### TabAndroid props:
-TabAndroid represents a child for TabLayoutAndroid (i.e a tab instance). Especially, it's a container that allows you to store child view(s) for current tab instance. In a nutshell, it works like a <View> container but for TabLayoutAndroid. 
+##### TabLayoutAndroid.Item props:
+TabLayoutAndroid.Item represents a child for TabLayoutAndroid (i.e a tab instance). Especially, it's a container that allows you to store child view(s) for current tab instance. In a nutshell, it works like a <View> container but for TabLayoutAndroid. 
 
-Besides, each TabAndroid can be customized by several properties:
+Besides, each TabLayoutAndroid.Item can be customized by several properties:
 
 > [View props...](https://facebook.github.io/react-native/docs/view.html#props)<br/><br/>
 > **text** string *optional* <br/>Sets the tab label.<br/><br/>
@@ -165,8 +166,8 @@ Besides, each TabAndroid can be customized by several properties:
 ###### Basic Usage:
 
 ```jsx
-import React, {AppRegistry, StyleSheet, Text, View} from "react-native";
-import {TabLayoutAndroid, TabAndroid} from "react-native-android-kit";
+import React, { AppRegistry, StyleSheet, Text, View } from "react-native";
+import { TabLayoutAndroid } from "react-native-android-kit";
 
 class TabLayoutExample extends React.Component {
 	render() {
@@ -176,19 +177,19 @@ class TabLayoutExample extends React.Component {
 				<TabLayoutAndroid style={{height:60}} backgroundColor='#009688' indicatorTabColor='#ffc400'
 								  indicatorTabHeight={2} scrollable={false} center={false}>
 
-					<TabAndroid text='Tab1' textSize={16} textColor="white" selectedTextColor='#ffc400'
+					<TabLayoutAndroid.Item text='Tab1' textSize={16} textColor="white" selectedTextColor='#ffc400'
 								icon='ic_home_black_24dp' iconPosition='left'>
 						
 						<Text>I'm the first Tab content!</Text>
 						
-					</TabAndroid>
+					</TabLayoutAndroid.Item>
 					
-					<TabAndroid text='Tab2' textSize={16} textColor='white' selectedTextColor='#ffc400'
+					<TabLayoutAndroid.Item text='Tab2' textSize={16} textColor='white' selectedTextColor='#ffc400'
 								icon='ic_important_devices_black_24dp' iconPosition='left'>
 						
 						<Text>I'm the second Tab content!</Text>
 						
-					</TabAndroid>
+					</TabLayoutAndroid.Item>
 
 				</TabLayoutAndroid>
 				
@@ -201,13 +202,15 @@ class TabLayoutExample extends React.Component {
 ###### Demonstration:
 
 <p align="center">
-	<img src="https://raw.githubusercontent.com/ayoubdev/assets/master/react-native-android-kit/tablayout.Gif" title="TabLayout Demonstration" alt="TabLayoutAndroid & TabAndroid"/>
+	<img src="https://raw.githubusercontent.com/ayoubdev/assets/master/react-native-android-kit/tablayout.Gif" title="TabLayout Demonstration" alt="TabLayoutAndroid & TabLayoutAndroid.Item"/>
 </p>
 *For corresponding code, see [Code from demonstration application](example/src/index.js)*
 
 <br/><br/><br/>
 
 ### ButtonAndroid
+
+**Important Note:** Since 0.37 react-native release, you can use ```<Button />``` as a cross native component between Android and iOS. I recommend you to use it instead of this ```<ButtonAndroid />``` component.
 
 #### Introduction
 
@@ -228,8 +231,8 @@ For more details, see: [Native Button documentation](http://developer.android.co
 ###### Basic Usage:
 
 ```jsx
-import React, {StyleSheet, View, ToastAndroid} from "react-native";
-import {ButtonAndroid} from "react-native-android-kit";
+import React, { StyleSheet, View, ToastAndroid } from "react-native";
+import { ButtonAndroid } from "react-native-android-kit";
 
 class ButtonExample extends React.Component {
 	render() {
@@ -255,7 +258,7 @@ class ButtonExample extends React.Component {
 ###### Demonstration:
 
 <p align="center">
-	<img src="https://raw.githubusercontent.com/ayoubdev/assets/master/react-native-android-kit/button.Gif" title="Button Demonstration" alt="ButtonAndroid"/>
+	<img src="https://raw.githubusercontent.com/aybadb/assets/master/react-native-android-kit/button.Gif" title="Button Demonstration" alt="ButtonAndroid"/>
 </p>
 
 *For corresponding code, see [Code from demonstration application](example/src/components/button.js)*
@@ -284,8 +287,8 @@ For more details, see: [Native FloatingActionButton documentation](http://develo
 ###### Basic Usage:
 
 ```jsx
-import React, {StyleSheet, View, ToastAndroid} from "react-native";
-import {FloatingButtonAndroid} from "react-native-android-kit";
+import React, { StyleSheet, View, ToastAndroid } from "react-native";
+import { FloatingButtonAndroid } from "react-native-android-kit";
 
 class FloatingButtonExample extends React.Component {
 	render() {
@@ -311,7 +314,7 @@ class FloatingButtonExample extends React.Component {
 ###### Demonstration:
 
 <p align="center">
-	<img src="https://raw.githubusercontent.com/ayoubdev/assets/master/react-native-android-kit/fab.Gif" title="FloatingActionButton Demonstration" alt="FloatingButtonAndroid"/>
+	<img src="https://raw.githubusercontent.com/aybadb/assets/master/react-native-android-kit/fab.Gif" title="FloatingActionButton Demonstration" alt="FloatingButtonAndroid"/>
 </p>
 
 *For corresponding code, see [Code from demonstration application](example/src/components/floatingButton.js)*
@@ -347,6 +350,13 @@ To build and test this demo, just follow these steps:
 - [x] Go to the example folder: `cd ./example`
 - [x] Install npm dependencies, build and deploy the demonstration application by running: `npm install`
 - [x] Enjoy RNAK demo on your device/emulator !
+
+<br/>
+
+### Todo
+
+- [x] **TabLayoutAndroid:** Homogenize component props and naming with TabBarIOS react-native implementation
+- [x] **TabLayoutAndroid:** Programmatically set the current active tab
 
 <br/><br/><br/><br/>
 

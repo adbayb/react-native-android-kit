@@ -1,7 +1,7 @@
 import React from "react";
 import {
-	StyleSheet, 
-	View, 
+	StyleSheet,
+	View,
 	ToastAndroid
 } from "react-native";
 import { FloatingButtonAndroid } from "react-native-android-kit";

@@ -1,13 +1,13 @@
 import React from "react";
 import {
-	StyleSheet, 
-	Text, 
-	View, 
+	StyleSheet,
+	Text,
+	View,
 	ToolbarAndroid
 } from "react-native";
 import ButtonExample from "./components/button";
 import FloatingButtonExample from "./components/floatingButton";
-import { TabLayoutAndroid, TabAndroid } from "react-native-android-kit";
+import { TabLayoutAndroid } from "react-native-android-kit";
 
 class Example extends React.Component {
 	render() {
@@ -15,18 +15,18 @@ class Example extends React.Component {
 			<View style={styles.container}>
 				<ToolbarAndroid
 					title="React Native Android Kit -- Examples"
-					style={styles.toolbar}/>
+					style={styles.toolbar} />
 
-				<TabLayoutAndroid style={{height:60}} backgroundColor="#009688" indicatorTabColor="#ffc400"
+				<TabLayoutAndroid style={{ height: 80 }} backgroundColor="#009688" indicatorTabColor="#ffc400"
 					indicatorTabHeight={2} scrollable={false} center={false}>
 
-					<TabAndroid text="Tab1" textSize={16} textColor="white" selectedTextColor="#ffc400"
-								icon="ic_home_black_24dp" iconPosition="left">
+					<TabLayoutAndroid.Item text="Tab1" textSize={16} textColor="white" selectedTextColor="#ffc400"
+						icon="ic_home_black_24dp" iconPosition="left">
 						<Text>ButtonAndroid Examples</Text>
-						<ButtonExample/>
-					</TabAndroid>
-					<TabAndroid text="Tab2" textSize={16} textColor="white" selectedTextColor="#ffc400"
-								icon="ic_important_devices_black_24dp" iconPosition="left">
+						<ButtonExample />
+					</TabLayoutAndroid.Item>
+					<TabLayoutAndroid.Item text="Tab2" textSize={16} textColor="white" selectedTextColor="#ffc400"
+						icon="ic_important_devices_black_24dp" iconPosition="left">
 						<Text>FloatingButtonAndroid Examples</Text>
 						<Text>
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -38,12 +38,12 @@ class Example extends React.Component {
 							Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
 							Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.
 						</Text>
-						<FloatingButtonExample/>
-					</TabAndroid>
-					<TabAndroid text="Tab3" textSize={16} textColor="white" selectedTextColor="#ffc400"
-								icon="ic_build_black_24dp" iconPosition="left">
+						<FloatingButtonExample />
+					</TabLayoutAndroid.Item>
+					<TabLayoutAndroid.Item text="Tab3" textSize={16} textColor="white" selectedTextColor="#ffc400"
+						icon="ic_build_black_24dp" iconPosition="left">
 						<Text>Hello, I'm the last tab: nothing to show</Text>
-					</TabAndroid>
+					</TabLayoutAndroid.Item>
 
 				</TabLayoutAndroid>
 
