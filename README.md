@@ -202,7 +202,7 @@ class TabLayoutExample extends React.Component {
 ###### Demonstration:
 
 <p align="center">
-	<img src="" title="TabLayout Demonstration" alt="TabLayoutAndroid & TabLayoutAndroid.Item"/>
+	<img src="https://raw.githubusercontent.com/ayoubdev/assets/master/react-native-android-kit/tablayout.Gif" title="TabLayout Demonstration" alt="TabLayoutAndroid & TabLayoutAndroid.Item"/>
 </p>
 *For corresponding code, see [Code from demonstration application](example/src/index.js)*
 
@@ -210,7 +210,7 @@ class TabLayoutExample extends React.Component {
 
 ### ButtonAndroid
 
-**Note:** Since 0.37 react-native release, you can use ```<Button />``` as a cross native component between Android and iOS. I recommend you to use it instead of the react-native-android-kit ```<ButtonAndroid />``` component.
+**Important Note:** Since 0.37 react-native release, you can use ```<Button />``` as a cross native component between Android and iOS. I recommend you to use it instead of this ```<ButtonAndroid />``` component.
 
 #### Introduction
 
