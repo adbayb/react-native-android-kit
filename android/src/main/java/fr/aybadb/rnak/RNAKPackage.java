@@ -6,6 +6,7 @@ import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
 import fr.aybadb.rnak.components.button.ButtonManager;
+import fr.aybadb.rnak.components.coordinatorLayout.CoordinatorLayoutManager;
 import fr.aybadb.rnak.components.floatingbutton.FabManager;
 import fr.aybadb.rnak.components.tab.TabLayoutManager;
 
@@ -29,7 +30,8 @@ public class RNAKPackage implements ReactPackage {
 		return Arrays.<ViewManager>asList(
 				new ButtonManager(),
 				new FabManager(),
-				new TabLayoutManager()
+				new TabLayoutManager(),
+				new CoordinatorLayoutManager()
 		);
 	}
 }

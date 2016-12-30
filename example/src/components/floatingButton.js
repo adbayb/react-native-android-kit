@@ -1,4 +1,6 @@
-import React from "react";
+import React, {
+	Component
+} from "react";
 import {
 	StyleSheet,
 	View,
@@ -6,7 +8,19 @@ import {
 } from "react-native";
 import { FloatingButtonAndroid } from "react-native-android-kit";
 
-class FloatingButtonExample extends React.Component {
+const styles = StyleSheet.create({
+	container: {
+		// position in React Native is similar to regular CSS, but everything is set 
+		// to relative by default, so absolute positioning is always just relative to the parent:
+		// position: "absolute",
+		flex: 1,
+		flexDirection: "row",
+		alignItems: "center",
+		justifyContent: "space-around"
+	}
+});
+
+export default class FloatingButton extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
@@ -23,7 +37,6 @@ class FloatingButtonExample extends React.Component {
 					/>
 
 				<FloatingButtonAndroid
-					style={styles.fab}
 					icon='ic_home_black_24dp'
 					rippleEffect={false}
 					onPress={
@@ -35,7 +48,7 @@ class FloatingButtonExample extends React.Component {
 					/>
 
 				<FloatingButtonAndroid
-					style={[styles.fab, { height: 100, width: 100 }]}
+					style={{ height: 100, width: 100 }}
 					backgroundColor='#ffff0000'
 					rippleColor='black'
 					icon='ic_reply_all_black_24dp'
@@ -48,7 +61,7 @@ class FloatingButtonExample extends React.Component {
 					/>
 
 				<FloatingButtonAndroid
-					style={[styles.fab, { height: 40, width: 70 }]}
+					style={{ height: 40, width: 70 }}
 					backgroundColor='darkgray'
 					rippleColor='green'
 					icon='ic_add_white_24dp'
@@ -64,21 +77,3 @@ class FloatingButtonExample extends React.Component {
 		);
 	}
 }
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 3,
-		flexDirection: "column",
-		alignItems: "center",
-		paddingTop: 10,
-		top: -380
-	},
-
-	fab: {
-		marginTop: 10,
-		height: 50,
-		width: 50
-	}
-});
-
-export default FloatingButtonExample;

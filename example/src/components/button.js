@@ -6,7 +6,19 @@ import {
 } from "react-native";
 import { ButtonAndroid } from "react-native-android-kit";
 
-class ButtonExample extends React.Component {
+const styles = StyleSheet.create({
+	container: {
+		flex: 1,
+		flexDirection: "row"
+	},
+	buttoncustom: {
+		flex: 1,
+		height: 60,
+		alignSelf: "flex-end"
+	}
+});
+
+export default class Button extends React.Component {
 	render() {
 		return (
 			<View style={styles.container}>
@@ -37,18 +49,3 @@ class ButtonExample extends React.Component {
 		);
 	}
 }
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 3,
-		flexDirection: "row",
-		bottom: 0
-	},
-	buttoncustom: {
-		flex: 1,
-		height: 60,
-		alignSelf: "flex-end"
-	}
-});
-
-export default ButtonExample;

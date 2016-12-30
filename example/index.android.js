@@ -2,12 +2,12 @@ import React, { Component } from "react";
 import {
 	AppRegistry
 } from "react-native";
-import Example from "./src";
+import App from "./src";
 
 class RNAKexamples extends Component {
 	render() {
 		return (
-			<Example />
+			<App />
 		);
 	}
 }
