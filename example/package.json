@@ -25,7 +25,8 @@
     "postinstall": "npm run deploy",
     "init": "node node_modules/react-native/local-cli/cli.js android",
     "deploy": "node node_modules/react-native/local-cli/cli.js run-android",
-    "start": "node node_modules/react-native/local-cli/cli.js start"
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "update": "rimraf node_modules/react-native-android-kit && rimraf android/app/build && npm i"
   },
   "dependencies": {
     "react": "^15.4.1",

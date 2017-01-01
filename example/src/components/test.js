@@ -4,28 +4,21 @@ import React, {
 import {
 	View,
 	Text,
-	ViewPagerAndroid,
-	requireNativeComponent,
-	findNodeHandle,
-	UIManager
+	requireNativeComponent
 } from "react-native";
 
-const NativeComponent = requireNativeComponent("CoordinatorLayout", CoordinatorLayout, {});
+const NativeComponent = requireNativeComponent("NestedScrollViewAndroid", Test, {});
 
-export default class CoordinatorLayout extends Component {
-	static REF_COORDINATOR = "refCoordinator";
+export default class Test extends Component {
+	state = {
+		height: 200
+	};
 
 	componentDidMount() {
 		//this.debug();
-	}
-
-	debug() {
-		console.log("AYOUB", UIManager.CoordinatorLayout.Commands.debug);
-		UIManager.dispatchViewManagerCommand(
-			findNodeHandle(this.refs[CoordinatorLayout.REF_COORDINATOR]),
-			UIManager.CoordinatorLayout.Commands.debug,
-			null
-		);
+		setTimeout(() => this.setState({
+			height: 400
+		}), 5000);
 	}
 
 	render() {
@@ -39,8 +32,18 @@ export default class CoordinatorLayout extends Component {
 		// 		<Text> TEMP </Text>
 		// 	</View>
 		// </ViewPagerAndroid>
+
+		// collapsable=false is important to insure that view exists in hierarchy (not optimized (for example view is removed if no 
+		// background color and the grandfather is already a ViewGroup) 
+		// by React via NativeViewHierarchyOptimizer) and don't get "Scrollview can host only one direct child" error:
 		return (
-			<NativeComponent ref={CoordinatorLayout.REF_COORDINATOR} style={{ flex: 1, backgroundColor: "blue" }} />
+			<NativeComponent style={{ position: "absolute", top: 10, left: 10, backgroundColor: "blue", height: this.state.height, width: 200 }}>
+				<View style={{ height: 1000, width: 1000 }} collapsable={false}>
+					<Text> TOOTOTOTOTOTTOTTOOdasdasT </Text>
+					<Text> TOOTOTOTOTOTTOTTOOdasdasT </Text>
+					<Text> Ayoub </Text>
+				</View>
+			</NativeComponent>
 		);
 	}
 }

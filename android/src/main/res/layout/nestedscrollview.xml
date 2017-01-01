@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- we set a generic view (typed via class attribute) since xml don't accept $ character to
+specify an inner nested class (<fr.aybadb.rnak.components.RCTNestedScrollView$NativeView /> is not valid in xml) -->
+<view xmlns:android="http://schemas.android.com/apk/res/android"
+    class="fr.aybadb.rnak.components.RCTNestedScrollView$NativeView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="vertical" />
