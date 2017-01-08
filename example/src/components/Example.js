@@ -1,5 +1,5 @@
 import React, {
-	Component,
+	PureComponent,
 	PropTypes
 } from "react";
 import {
@@ -13,32 +13,42 @@ const styles = StyleSheet.create({
 		flex: 1
 	},
 	header: {
-		flex: 2,
+		flex: 4,
 		paddingTop: 10,
 		paddingBottom: 10
 	},
 	content: {
 		flex: 10
 	},
-	text: {
+	title: {
 		fontWeight: "bold",
 		textAlign: "center",
 		fontSize: 20
+	},
+	text: {
+		top: 5,
+		fontWeight: "bold",
+		color: "orange"
 	}
 });
 
-export default class Example extends Component {
+export default class Example extends PureComponent {
 	static propTypes = {
 		description: PropTypes.string,
+		log: PropTypes.string,
 		children: PropTypes.node
-	}
+	};
+
 	render() {
-		const { description, children } = this.props;
+		const { description, log, children } = this.props;
 
 		return (
 			<View style={styles.container}>
 				<View style={styles.header}>
-					<Text style={styles.text}> {description} </Text>
+					<Text style={styles.title}>{description}</Text>
+					<Text style={styles.text}>
+						Action log: {log}
+					</Text>
 				</View>
 				<View style={styles.content}>
 					{children}

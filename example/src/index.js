@@ -1,15 +1,19 @@
-import React from "react";
+import React, {
+	PureComponent
+} from "react";
 import {
-	StyleSheet,
 	View,
+	Text,
 	ToolbarAndroid,
-	ToastAndroid
+	UIManager
 } from "react-native";
-import { Button, FloatingButton, TabLayout } from "react-native-android-kit";
-import Example from "./views/example";
-import Test from "./views/test";
+import { Button, FloatingButton, TabLayout, NestedScrollView } from "react-native-android-kit";
+import Example from "./components/Example";
+import Test from "./components/test";
 
-const styles = StyleSheet.create({
+console.log(UIManager);
+
+const styles = {
 	button: {
 		container: {
 			flex: 1,
@@ -34,7 +38,7 @@ const styles = StyleSheet.create({
 	},
 	tabLayout: {
 		container: {
-			height: 80
+			flex: 1
 		}
 	},
 	container: {
@@ -46,9 +50,15 @@ const styles = StyleSheet.create({
 		backgroundColor: "#009688",
 		height: 60,
 	}
-});
+};
 
-export default class App extends React.Component {
+export default class App extends PureComponent {
+	easterCount = 0;
+	state = {
+		log: "No Action",
+		easterEgg: false
+	};
+
 	renderButton() {
 		const { button: { container, item } } = styles;
 
@@ -59,11 +69,21 @@ export default class App extends React.Component {
 					text='Default Button'
 					onPress={
 						() => {
-							ToastAndroid.show("Event onPress: Native Android Button (Default)", ToastAndroid.SHORT);
-							console.log("Default Button");
+							this.easterCount++;
+							this.setState(() => {
+								const updatedState = {};
+								if (this.easterCount > 2) {
+									updatedState.easterEgg = true;
+								}
+
+								return {
+									...updatedState,
+									log: "onPress: Native Android Button (Default)"
+								};
+							});
 						}
 					}
-					/>
+				/>
 				<Button
 					style={item}
 					textColor='red'
@@ -72,11 +92,12 @@ export default class App extends React.Component {
 					text='Custom Button'
 					onPress={
 						() => {
-							ToastAndroid.show("Event onPress: Native Android Button (Custom)", ToastAndroid.SHORT);
-							console.log("Custom Button");
+							this.setState({
+								log: "onPress: Native Android Button (Custom)"
+							});
 						}
 					}
-					/>
+				/>
 			</View>
 		);
 	}
@@ -92,22 +113,24 @@ export default class App extends React.Component {
 					icon='ic_add_white_24dp'
 					onPress={
 						() => {
-							ToastAndroid.show("Event onPress: Native Android FloatingAction Button (Ripple effect)", ToastAndroid.SHORT);
-							console.log("Default Ripple Icon FAButton");
+							this.setState({
+								log: "onPress: Native Android FloatingAction Button (Ripple effect)"
+							});
 						}
 					}
-					/>
+				/>
 
 				<FloatingButton
 					icon='ic_home_black_24dp'
 					rippleEffect={false}
 					onPress={
 						() => {
-							ToastAndroid.show("Event onPress: Native Android FloatingAction Button (No Ripple effect)", ToastAndroid.SHORT);
-							console.log("Default No Ripple Icon FAButton");
+							this.setState({
+								log: "onPress: Native Android FloatingAction Button (No Ripple effect)"
+							});
 						}
 					}
-					/>
+				/>
 
 				<FloatingButton
 					style={{ height: 100, width: 100 }}
@@ -116,34 +139,22 @@ export default class App extends React.Component {
 					icon='ic_reply_all_black_24dp'
 					onPress={
 						() => {
-							ToastAndroid.show("Event onPress: Native Android FloatingAction Button (Custom size)", ToastAndroid.SHORT);
-							console.log("Custom Ripple FAButton");
+							this.setState({
+								log: "onPress: Native Android FloatingAction Button (Custom size)"
+							});
 						}
 					}
-					/>
-
-				<FloatingButton
-					style={{ height: 40, width: 70 }}
-					backgroundColor='darkgray'
-					rippleColor='green'
-					icon='ic_add_white_24dp'
-					rippleEffect={true}
-					onPress={
-						() => {
-							ToastAndroid.show("Event onPress: Native Android FloatingAction Button (Custom size [deformed])", ToastAndroid.SHORT);
-							console.log("Custom Ripple FAButton");
-						}
-					}
-					/>
+				/>
 			</View>
 		);
 	}
 
 	renderTabLayout() {
 		const { tabLayout: { container } } = styles;
+		const { log } = this.state;
 
 		return (
-			<TabLayout style={container} backgroundColor="#009688" indicatorTabColor="#ffc400"
+			<TabLayout style={container} height={80} backgroundColor="#009688" indicatorTabColor="#ffc400"
 				indicatorTabHeight={2} scrollable={false} center={false}>
 
 				<TabLayout.Item
@@ -154,7 +165,7 @@ export default class App extends React.Component {
 					icon="ic_home_black_24dp"
 					iconPosition="left">
 
-					<Example description="ButtonAndroid">
+					<Example log={log} description="ButtonAndroid">
 						{this.renderButton()}
 					</Example>
 
@@ -168,7 +179,7 @@ export default class App extends React.Component {
 					icon="ic_important_devices_black_24dp"
 					iconPosition="left">
 
-					<Example description="FloatingButtonAndroid">
+					<Example log={log} description="FloatingButtonAndroid">
 						{this.renderFloatingButton()}
 					</Example>
 
@@ -182,8 +193,13 @@ export default class App extends React.Component {
 					icon="ic_build_black_24dp"
 					iconPosition="left">
 
-					<Example description="ButtonAndroid">
-						<Example description="Nothing to show" />
+					<Example log={log} description="NestedScrollView">
+						<NestedScrollView style={{ backgroundColor: "brown", flex: 1 }} contentContainerStyle={{ height: 500 }} >
+							<Text> NestedScrollView1 </Text>
+							<NestedScrollView style={{ top: 50, backgroundColor: "grey", height: 200 }} contentContainerStyle={{ height: 1000 }} >
+								<Text> NestedScrollView2 </Text>
+							</NestedScrollView>
+						</NestedScrollView>
 					</Example>
 
 				</TabLayout.Item >
@@ -197,6 +213,11 @@ export default class App extends React.Component {
 	}
 
 	render() {
+		const { easterEgg } = this.state;
+		if (easterEgg) {
+			return this.renderTest();
+		}
+
 		return (
 			<View style={styles.container}>
 				<ToolbarAndroid
@@ -205,6 +226,5 @@ export default class App extends React.Component {
 				{this.renderTabLayout()}
 			</View>
 		);
-		// return this.renderTest();
 	}
 }

@@ -11,7 +11,7 @@ import com.facebook.react.uimanager.annotations.ReactProp;
 import fr.aybadb.rnak.utils.Drawable;
 
 public class RCTFloatingActionButton extends SimpleViewManager<RCTFloatingActionButton.NativeView> {
-	private final static String REACT_CLASS = "FloatingButton";
+	private final static String REACT_CLASS = "RNAKFloatingButton";
 
 	@Override
 	public String getName() {

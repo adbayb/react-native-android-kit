@@ -1,5 +1,7 @@
 # React Native Android Kit <br/> [![npm version](https://img.shields.io/badge/npm-v1.2.0-green.svg)](https://www.npmjs.com/package/react-native-android-kit)	[![react-native version](https://img.shields.io/badge/react--native-min%20v0.38.0-blue.svg)](https://github.com/facebook/react-native) 
 
+#TODO: Update doc
+
 <br/>
 
 A set of native Android UI components and modules for React Native framework. 

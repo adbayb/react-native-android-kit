@@ -8,8 +8,9 @@ import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.ViewGroupManager;
 import fr.aybadb.rnak.R;
 
+// TODO: onScroll event ?
 public class RCTNestedScrollView extends ViewGroupManager<RCTNestedScrollView.NativeView> {
-	private final static String REACT_CLASS = "NestedScrollView";
+	private final static String REACT_CLASS = "RNAKNestedScrollView";
 
 	@Override
 	public String getName() {
