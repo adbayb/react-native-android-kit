@@ -25,7 +25,7 @@ import java.util.Locale;
 import java.util.Map;
 
 public class RCTTabLayout extends ViewGroupManager<RCTTabLayout.NativeView> {
-	private final static String REACT_CLASS = "TabLayoutAndroid";
+	private final static String REACT_CLASS = "TabLayout";
 	private final static int COMMAND_SETUPWITHVIEWPAGER = 0;
 
 	@Override

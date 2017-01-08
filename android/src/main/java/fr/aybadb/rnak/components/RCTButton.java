@@ -10,7 +10,7 @@ import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.annotations.ReactProp;
 
 public class RCTButton extends SimpleViewManager<RCTButton.NativeView> {
-	private final static String REACT_CLASS = "ButtonAndroid";
+	private final static String REACT_CLASS = "Button";
 
 	@Override
 	public String getName() {

@@ -7,6 +7,10 @@ import {
 	requireNativeComponent
 } from "react-native";
 
+import { NestedScrollView } from "react-native-android-kit";
+
+console.log("YOYOYOY", NestedScrollView);
+
 const NativeComponent = requireNativeComponent("NestedScrollViewAndroid", Test, {});
 
 export default class Test extends Component {

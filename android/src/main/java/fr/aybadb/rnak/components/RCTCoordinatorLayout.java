@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 import java.util.Map;
 
 public class RCTCoordinatorLayout extends ViewGroupManager<CoordinatorLayout> {
-	private final static String REACT_CLASS = "CoordinatorLayoutAndroid";
+	private final static String REACT_CLASS = "CoordinatorLayout";
 	private final static int COMMAND_DEBUG = 0;
 
 	@Override

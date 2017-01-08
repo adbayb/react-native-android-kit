@@ -9,7 +9,7 @@ import com.facebook.react.uimanager.ViewGroupManager;
 import fr.aybadb.rnak.R;
 
 public class RCTNestedScrollView extends ViewGroupManager<RCTNestedScrollView.NativeView> {
-	private final static String REACT_CLASS = "NestedScrollViewAndroid";
+	private final static String REACT_CLASS = "NestedScrollView";
 
 	@Override
 	public String getName() {
