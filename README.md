@@ -75,8 +75,8 @@ To use this kit inside your react native project, you must follow these steps:
 - [x] Add the following lines to your `android/settings.gradle`:
 
 	```gradle
-	include ':ReactNativeAndroidKit'
-	project(':ReactNativeAndroidKit').projectDir = file('../node_modules/react-native-android-kit/android')
+        include ':react-native-android-kit'
+        project(':react-native-android-kit').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-android-kit/android')
 	```
 
 - [x] Inside `android/app/build.gradle` file, add compilation instruction for ReactNativeAndroidKit like that:
@@ -84,7 +84,7 @@ To use this kit inside your react native project, you must follow these steps:
 	```gradle
 	dependencies {
 		...
-		compile project(':ReactNativeAndroidKit')			
+		compile project(':react-native-android-kit')
 	}
 	```
 
